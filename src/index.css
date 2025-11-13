@@ -1,0 +1,56 @@
+/* src/index.css – baseline seguro */
+/* Importa estilos adicionais definidos em src/styles/hf-ui.css. Estes estilos
+   adicionam acabamentos aos botões, cartões e modais definidos no projeto. */
+@import "./styles/hf-ui.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importa estilos adicionais definidos em src/styles/hf-ui.css. Estes estilos
+   adicionam acabamentos aos botões, cartões e modais definidos no projeto. */
+
+.container-custom{ max-width: 1200px; margin-inline: auto; }
+/* --- Ajuste dos botões nos cards --- */
+.card-actions {
+  display: flex;
+  gap: 0.75rem; /* espaço entre os botões */
+  flex-wrap: wrap; /* permite quebrar em 2 linhas no celular */
+  margin-top: auto; /* mantém os botões sempre alinhados ao final do card */
+}
+
+/* Botões (já usados antes) */
+.hf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.25rem;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/* Botão contorno */
+.hf-btn--outline {
+  border: 2px solid #C19A4A;
+  color: #111;
+  background: transparent;
+}
+
+.hf-btn--outline:hover {
+  background: #C19A4A;
+  color: white;
+}
+
+/* Botão primário */
+.hf-btn--primary {
+  background: linear-gradient(90deg, #D6B16A, #C19A4A);
+  border: none;
+  color: #fff;
+}
+
+.hf-btn--primary:hover {
+  filter: brightness(1.08);
+}
