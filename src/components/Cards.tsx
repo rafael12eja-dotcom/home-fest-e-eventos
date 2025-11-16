@@ -110,10 +110,11 @@ const Cards: React.FC = () => {
             <div className="aspect-[16/11] w-full overflow-hidden">
               <img
                 src={item.img}
-                alt={item.title}
-                className="h-full w-full object-cover"
+                alt={`${item.title} - Home Fest & Eventos em Belo Horizonte`}
+                className="w-full h-full object-cover rounded-xl shadow-sm"
                 loading="lazy"
-               className="w-full h-auto aspect-[4/3] object-cover rounded-xl shadow-sm" />
+                decoding="async"
+              />
             </div>
 
             {/* Conteúdo */}

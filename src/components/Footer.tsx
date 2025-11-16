@@ -18,6 +18,25 @@ export default function Footer() {
     { href: "#almoco", label: "Almoço" },
     { href: "#jantar", label: "Jantar" }
   ];
+  const partners = [
+    {
+      name: "Pastelaria Marília de Dirceu",
+      href: "https://www.instagram.com/pastelariamariliadedirceu/",
+    },
+    {
+      name: "Yukai Cozinha Japonesa",
+      href: "https://www.instagram.com/yukaicozinhajaponesa/",
+    },
+    {
+      name: "Cima's Cake",
+      href: "https://www.instagram.com/cimascake/",
+    },
+    {
+      name: "Boom Festas",
+      href: "https://www.instagram.com/boomfestasoficial/",
+    },
+  ];
+
 
   return (
     <footer className="bg-[#111111] text-[#EDE6DB] border-t border-[#C19A4A]/30">
@@ -141,9 +160,27 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-6 flex flex-col gap-3 sm:gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[#CFC8BC] text-center sm:text-left">
             © {year} Home Fest &amp; Eventos — Todos os direitos reservados.
+          </p>
+          <p className="text-[11px] sm:text-xs text-[#CFC8BC] text-center sm:text-left">
+            Parceiros:&nbsp;
+            {partners.map((partner, index) => (
+              <span key={partner.href}>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white underline underline-offset-4 decoration-[#C19A4A]"
+                >
+                  {partner.name}
+                </a>
+                {index < partners.length - 1 && (
+                  <span className="opacity-60"> · </span>
+                )}
+              </span>
+            ))}
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 text-xs text-[#CFC8BC]">
             <a

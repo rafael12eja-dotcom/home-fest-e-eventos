@@ -126,7 +126,7 @@ export const CARDAPIO_BOTECO: Section[] = [
 // Cardápio de Churrasco – Home Fest & Eventos
 export const CARDAPIO_CHURRASCO: Section[] = [
   {
-    title: "🔥 Carnes Principais",
+    title: " Carnes Principais",
     items: [
       "Picanha bovina (selecionada e fatiada no ponto)",
       "Contrafilé ou alcatra ao alho e sal grosso",
@@ -159,7 +159,7 @@ export const CARDAPIO_CHURRASCO: Section[] = [
     ],
   },
   {
-    title: "🍰 Sobremesas",
+    title: " Sobremesas",
     items: [
       "Salada de frutas da estação",
       "Pudim de leite condensado",
@@ -176,7 +176,7 @@ export const CARDAPIO_CHURRASCO: Section[] = [
     ],
   },
   {
-    title: "🎉 Extras e Personalizações",
+    title: " Extras e Personalizações",
     items: [
       "Estação de caipirinhas (tradicional, frutas vermelhas e limão siciliano)",
       "Buffet de espetinhos gourmet (queijo coalho, medalhão de frango, legumes grelhados)",
@@ -204,7 +204,7 @@ export const CARDAPIO_ESCOLAR: Section[] = [
     ]
   },
   {
-    title: "🍽 Cardápio Padrão – Festa Escolar",
+    title: " Cardápio Padrão – Festa Escolar",
     items: [
       "Pensado para ser leve, prático, rápido de servir e apropriado para crianças dentro do ambiente escolar."
     ]
@@ -252,7 +252,7 @@ export const CARDAPIO_ESCOLAR: Section[] = [
 // Cardápio Festa Brunch (Para o Serviço "Café da Manhã")
 export const CARDAPIO_BRUNCH: Section[] = [
   {
-    title: "☕ Mesa de Café (Aparador)",
+    title: " Mesa de Café (Aparador)",
     items: [
       "**Bolos (2 tipos):** Bolo de cenoura com cobertura de chocolate, Bolo de laranja.",
       "**Mini Sanduíches (2 tipos)**",
@@ -263,14 +263,14 @@ export const CARDAPIO_BRUNCH: Section[] = [
     ]
   },
   {
-    title: "🔥 Bebidas Quentes e Acompanhamentos",
+    title: " Bebidas Quentes e Acompanhamentos",
     items: [
       "**Bebidas Quentes:** Café, leite, chá e cappuccino.",
       "**Acompanhamentos:** Manteiga, geleia, requeijão, granola e mel."
     ]
   },
   {
-    title: "🍝 Prato Quente (Opcional, Escolher 1)",
+    title: " Prato Quente (Opcional, Escolher 1)",
     items: [
       "Penne ao molho 4 queijos",
       "Penne ao molho Napolitano",
@@ -278,33 +278,33 @@ export const CARDAPIO_BRUNCH: Section[] = [
     ]
   },
   {
-    title: "🧂 Salgados (Escolha 6 tipos)",
+    title: " Salgados (Escolha 6 tipos)",
     items: [
       "O cliente poderá escolher 6 tipos entre as opções do buffet (lista completa disponível mediante consulta). Exemplos: coxinha com catupiry, quiche de alho-poró, pastel assado, entre outros."
     ]
   },
   {
-    title: "🍬 Doces (Escolha 8 tipos - 5 unidades por pessoa)",
+    title: " Doces (Escolha 8 tipos - 5 unidades por pessoa)",
     items: [
       "Brigadeiro, beijinho, bombom Ele & Ela, docinho de leite ninho com Nutella, olho de sogra, tortinha de limão, palha italiana de Óreo, copinho de chocolate com mousse de maracujá, entre outros."
     ]
   },
   {
-    title: "🎂 Bolo (Escolha 1 sabor)",
+    title: " Bolo (Escolha 1 sabor)",
     items: [
       "**Sabores Inclusos:** Abacaxi com coco, coco, coco com ameixa, chocolate crocante, chocolate crocante branco, chocolate, dois amores (Ele e Ela), prestígio.",
       "**Acréscimo:** Chocolate com morango ou morango com chantilly: R$ 105,00."
     ]
   },
   {
-    title: "👧 Buffet Infantil (Incluso no Cardápio Brunch)",
+    title: " Buffet Infantil (Incluso no Cardápio Brunch)",
     items: [
       "**Kit Lanche Individual:** Pão de queijo, Mini pizza, Pastel frito de carne e queijo, Batata frita.",
       "**Aparador Infantil:** 2 tipos de sucos, Pipoca, Batata chips, Pão de queijo, 1 guloseima, Pralinê, Casquinha de pastel passada no açúcar e canela."
     ]
   },
   {
-    title: "🥤 Bebidas (Servidas à vontade)",
+    title: " Bebidas (Servidas à vontade)",
     items: [
       "Coca Cola Comum, Coca Cola Zero, Guaraná Comum, Guaraná Zero, Água mineral s/ Gás, Água Mineral c/ Gás.",
       "**Cerveja:** Pode ser levada pelo cliente (sem taxa), Original, Heineken (à consultar).",
@@ -316,28 +316,28 @@ export const CARDAPIO_BRUNCH: Section[] = [
 // Cardápio Almoço ou Jantar Oficial (Para os Serviços "Almoço" e "Jantar")
 export const CARDAPIO_ALMOCO_JANTAR: Section[] = [
   {
-    title: "🍽️ Cardápio 1",
+    title: "️ Cardápio 1",
     items: [
       "Arroz branco, Arroz com alho e brócolis, Lombo ao molho de ervas finas, Coq au Vin (peito de frango ao vinho com champignon), Banana à moda holandesa, Batata palha.",
       "**Salada Especial:** 3 tipos de alface, rúcula, abacaxi, tomate seco, castanha e molho cremoso de queijo."
     ]
   },
   {
-    title: "🍽️ Cardápio 2",
+    title: "️ Cardápio 2",
     items: [
       "Arroz branco, Arroz com ervas e passas ou arroz com alho e brócolis, Medalhão de frango ao molho de maracujá, Filé fatiado ao molho madeira, Penne ao molho quatro queijos.",
       "**Salada Tropical:** 3 tipos de alface, rúcula, kani, manga ou abacaxi, nozes e molho de shoyu e mel."
     ]
   },
   {
-    title: "🍽️ Cardápio 3",
+    title: "️ Cardápio 3",
     items: [
       "Arroz branco, Arroz com amêndoas ou arroz com alho e brócolis, Medalhão de filé, Coq au Vin (peito de frango ao vinho com champignon), Rondelli de espinafre.",
       "**Salada Gourmet:** 3 tipos de alface, rúcula, figo em calda, damasco, nozes e molho de queijo."
     ]
   },
   {
-    title: "🍽️ Cardápio 4",
+    title: "️ Cardápio 4",
     items: [
       "Arroz branco, Arroz com castanhas ou arroz com alho e brócolis, Frango à Indiana (iscas de frango com molho cremoso ao curry e aspargos), Filé fatiado ao molho funghi, Penne ao molho napolitano.",
       "**Salada Mediterrânea:** 3 tipos de alface, rúcula, abacaxi, tomate seco, castanha e molho cremoso de queijo."

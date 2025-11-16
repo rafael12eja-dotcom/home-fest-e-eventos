@@ -13,7 +13,7 @@ const TIPOS: Tipo[] = [
   {
     id: "infantil",
     title: "Buffet Infantil",
-    img: "/infantil.jpg",
+    img: "/card-buffet-infantil.jpg",
     desc: "Festa temática com cardápio lúdico, recreação e decoração base inclusa.",
     bullets: [
       "Cardápio infantil (salgados + mini docinhos)",
@@ -26,7 +26,7 @@ const TIPOS: Tipo[] = [
   {
     id: "15anos",
     title: "15 Anos",
-    img: "/15anos.jpg",
+    img: "/card-15anos.jpg",
     desc: "Celebração sofisticada com menu autoral e ambientação elegante.",
     bullets: [
       "Coquetel volante e ilhas frias",

@@ -65,7 +65,7 @@ const CHURRASCO: MenuItem = {
 };
 
 const BRUNCH_CAFE: MenuItem = {
-  title: "🍽️ Brunch / Café da Manhã",
+  title: "️ Brunch / Café da Manhã",
   items: [
     "Mesas de Café (bolos, pães, frios, mini-sanduíches, salada de frutas, biscoitos salgados/doce, manteiga/geleia/requeijão/granola/mel).",
     "Prato quente (penne 4 queijos, napolitano ou mexidinho).",
@@ -79,7 +79,7 @@ const BRUNCH_CAFE: MenuItem = {
 };
 
 const FESTA_KIDS: MenuItem = {
-  title: "👧 Festa Kids",
+  title: " Festa Kids",
   items: [
     "Kit lanche: pão de queijo, mini-pizza, pastel carne/queijo, batata frita.",
     "Aparador: sucos, pipoca, chips, pão de queijo, pralinê, casquinha doce.",
@@ -90,7 +90,7 @@ const FESTA_KIDS: MenuItem = {
 };
 
 const ALMOCO_JANTAR_BASE: MenuItem = {
-  title: "🍛 Almoço ou Jantar (Serviço Base)",
+  title: " Almoço ou Jantar (Serviço Base)",
   items: [
     "Serviço inclui salgados servidos à vontade.",
     "Reutiliza os mesmos salgados do brunch.",
@@ -101,7 +101,7 @@ const ALMOCO_JANTAR_BASE: MenuItem = {
 };
 
 const CARDAPIO_1: MenuItem = {
-  title: "🍽️ Cardápio 1",
+  title: "️ Cardápio 1",
   items: [
     "Arroz branco, arroz com alho e brócolis",
     "Lombo ao molho de ervas finas",
@@ -113,7 +113,7 @@ const CARDAPIO_1: MenuItem = {
 };
 
 const CARDAPIO_2: MenuItem = {
-  title: "🍽️ Cardápio 2",
+  title: "️ Cardápio 2",
   items: [
     "Arroz branco, arroz com ervas e passas",
     "Medalhão de frango ao maracujá",
@@ -124,7 +124,7 @@ const CARDAPIO_2: MenuItem = {
 };
 
 const CARDAPIO_3: MenuItem = {
-  title: "🍽️ Cardápio 3",
+  title: "️ Cardápio 3",
   items: [
     "Arroz branco, arroz com amêndoas",
     "Medalhão de filé",
@@ -135,7 +135,7 @@ const CARDAPIO_3: MenuItem = {
 };
 
 const CARDAPIO_4: MenuItem = {
-  title: "🍽️ Cardápio 4",
+  title: "️ Cardápio 4",
   items: [
     "Arroz branco, arroz com castanhas",
     "Frango à Indiana",

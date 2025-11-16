@@ -109,20 +109,7 @@ export default function Modal() {
         <div className="p-6 md:p-8 overflow-y-auto flex-1">
           {cardapio.sections.map((section, index) => (
             <div key={index} className="mb-8 border-b border-dashed border-gray-200 pb-6 last:border-b-0">
-              <h3 className="font-serif text-2xl text-[#111] mb-4 flex items-center gap-2">
-                {/* Ícone dinâmico baseado no título */}
-                {section.title.includes("Salgados") && <span role="img" aria-label="Salgados">🧂</span>}
-                {section.title.includes("Doces") && <span role="img" aria-label="Doces">🍬</span>}
-                {section.title.includes("Bombons") && <span role="img" aria-label="Bombons">🍫</span>}
-                {section.title.includes("Bolo") && <span role="img" aria-label="Bolo">🍰</span>}
-                {section.title.includes("Infantil") && <span role="img" aria-label="Infantil">👧</span>}
-                {section.title.includes("Bebidas") && <span role="img" aria-label="Bebidas">🥤</span>}
-                {section.title.includes("Mesa de Café") && <span role="img" aria-label="Café">☕</span>}
-                {section.title.includes("Prato Quente") && <span role="img" aria-label="Prato Quente">🍝</span>}
-                {section.title.includes("Cardápio 1") && <span role="img" aria-label="Cardápio 1">🍽️</span>}
-                {section.title.includes("Cardápio 2") && <span role="img" aria-label="Cardápio 2">🍽️</span>}
-                {section.title.includes("Cardápio 3") && <span role="img" aria-label="Cardápio 3">🍽️</span>}
-                {section.title.includes("Cardápio 4") && <span role="img" aria-label="Cardápio 4">🍽️</span>}
+              <h3 className="font-serif text-2xl text-[#111] mb-4">
                 {section.title}
               </h3>
               <ul className="space-y-3 text-neutral-700 text-base md:text-lg">
