@@ -18,13 +18,19 @@ const data: Item[] = [
   {
     id: "infantil",
     title: "Buffet Infantil",
-    img: "/portfolio-infantil.jpg",
+    img: "/infantil.jpg",
     desc: "Festa temática com cardápio lúdico e decoração inclusa."
+  },
+  {
+    id: "escolar",
+    title: "Festa Escolar",
+    img: "/escolar.jpg",
+    desc: "Evento escolar organizado, econômico e com cardápio infantil equilibrado."
   },
   {
     id: "15anos",
     title: "15 Anos",
-    img: "/portfolio-15anos.jpg",
+    img: "/15anos.jpg",
     desc: "Celebração inesquecível com menu elegante e ambientação especial."
   },
   {
@@ -34,30 +40,25 @@ const data: Item[] = [
     desc: "Cerimônia e recepção com gastronomia autoral e serviço completo."
   },
   {
-    id: "churrasco",
-    title: "Churrasco",
-    img: "/portfolio-churrasco.jpg",
-    desc: "Cortes selecionados na brasa, acompanhamentos e farofas especiais."
-  },
-  {
     id: "boteco",
     title: "Comida de Boteco",
     img: "/portfolio-boteco.jpg",
     desc: "Petiscos com apresentação sofisticada e tradição brasileira."
   },
   {
+    id: "churrasco",
+    title: "Churrasco",
+    img: "/portfolio-churrasco.jpg",
+    desc: "Cortes selecionados na brasa, acompanhamentos e farofas especiais."
+  },
+  {
     id: "empresas",
     title: "Corporativo",
     img: "/portfolio-empresas.jpg",
     desc: "Soluções gastronômicas para eventos corporativos com pontualidade e requinte."
-  },
-  {
-    id: "escolar",
-    title: "Festa Escolar",
-    img: "/portfolio-escolar.jpg",
-    desc: "Evento escolar organizado, econômico e com cardápio infantil equilibrado."
   }
 ];
+
 
 export default function Portfolio() {
   const { openModal } = useModal();
@@ -65,15 +66,15 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      aria-label="Portfólio de serviços"
+      aria-label="Festas em Casa e Eventos Sociais"
       className="bg-[#FBF6EE] px-5 md:px-8 py-6 md:py-8"
     >
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="font-serif text-4xl md:text-5xl text-[#111]">
-          Portfólio de Eventos - Buffet e Home Fest
+          Festas em Casa e Eventos Sociais
         </h2>
         <p className="text-lg text-[#404040] mt-2">
-          Experiências gastronômicas para cada tipo de celebração
+          Seu evento inesquecível, com a estrutura de um buffet e o conforto do seu espaço.
         </p>
       </div>
 
@@ -90,7 +91,7 @@ export default function Portfolio() {
                   <source srcSet={item.img.replace('.jpg', '.webp')} type="image/webp" />
                   <img
                     src={item.img}
-                    alt={`${item.title} - Buffet Home Fest com cardápio personalizado para festas em casa`}
+                    alt={`${item.title} em Belo Horizonte - Buffet Home Fest & Eventos com cardápio completo, equipe profissional e estrutura para festas em casa, salões e sítios`}
                     className="w-full h-full md:h-auto aspect-[4/3] object-cover rounded-xl shadow-sm"
                     width="600"
                     height="400"
@@ -115,14 +116,7 @@ export default function Portfolio() {
                     Cardápio
                   </button>
 
-                  <a
-                    href="#contato"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hf-btn hf-btn--primary"
-                   aria-label="Chamar no WhatsApp">
-                    Orçamento via WhatsApp
-                  </a>
+
                 </div>
               </div>
             </article>

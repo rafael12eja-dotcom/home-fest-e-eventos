@@ -1,0 +1,89 @@
+/* src/styles/hf-ui.css – componentes isolados (prefixo hf-) */
+:root{
+  --hf-ink:#111;
+  --hf-paper:#FBF6EE;
+  --hf-gold:#D4AF37;
+  --hf-gold-2:#C99A2F;
+  --hf-rose:#F0C9C9;
+  --hf-radius:14px;
+  --hf-shadow:0 10px 18px rgba(0,0,0,.08);
+  --hf-btn-h:56px;
+}
+
+/* ---------- Cards ---------- */
+.hf-card{
+  border-radius: 20px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 20px 50px rgba(0,0,0,.06);
+  overflow:hidden;
+}
+.hf-card__img{ width:100%; height:220px; object-fit:cover; }
+@media (min-width:768px){ .hf-card__img{ height:260px; } }
+.hf-card__body{ padding:1.5rem; }
+@media (min-width:768px){ .hf-card__body{ padding:1.75rem; } }
+.hf-card__title{ font-weight:800; letter-spacing:-.02em; font-size:1.5rem; }
+@media (min-width:768px){ .hf-card__title{ font-size:1.875rem; } }
+.hf-card__desc{ color:#444; font-size:.95rem; line-height:1.6; margin-top:.35rem; margin-bottom:1rem; }
+
+/* Ações sempre alinhadas, sem “estreitar” */
+.hf-card__actions{
+  display:grid; gap:.75rem; grid-template-columns:1fr;
+}
+@media (min-width:768px){ .hf-card__actions{ grid-template-columns:1fr 1fr; } }
+
+/* ---------- Botões ---------- */
+.hf-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  height:var(--hf-btn-h); width:100%; min-width:220px; padding:0 18px;
+  border-radius:var(--hf-radius);
+  font-weight:700; font-size:1rem; line-height:1.1; text-align:center;
+  box-shadow:var(--hf-shadow);
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+  user-select:none;
+}
+.hf-btn--primary{
+  color:#171717;
+  background:linear-gradient(135deg,#EAD39A 0%, var(--hf-gold) 34%, var(--hf-gold-2) 66%, var(--hf-rose) 100%);
+  border:1px solid rgba(212,175,55,.55);
+}
+.hf-btn--primary:hover{ transform:translateY(-1px); box-shadow:0 14px 22px rgba(212,175,55,.25); }
+.hf-btn--primary:active{ transform:translateY(0); }
+
+.hf-btn--outline{
+  color:#111; background:#fff; border:1.5px solid rgba(212,175,55,.45);
+}
+.hf-btn--outline:hover{ background:#fff9eb; border-color:var(--hf-gold); transform:translateY(-1px); }
+.hf-btn--outline:active{ transform:translateY(0); }
+
+/* Ajuste específico para os botões do hero (Ver cardápio / Solicitar orçamento).
+   Eles não devem ocupar toda a largura e têm dimensões menores para maior
+   harmonia visual na área de destaque.  A largura se ajusta ao conteúdo. */
+.hf-btn--hero {
+  width: auto;
+  min-width: 160px;
+  /* Reduz um pouco a altura sem alterar a variável global */
+  height: calc(var(--hf-btn-h) - 12px);
+  padding: 0 24px;
+}
+
+/* wrappers de texto para controle de quebra */
+.hf-nowrap{ white-space:nowrap; }
+.hf-softwrap{ white-space:normal; }
+
+/* ---------- FAQ ---------- */
+.hf-faq{ margin-top:1rem; }
+.hf-faq__item{ margin-bottom:.75rem; }
+.hf-faq__q{
+  width:100%; height:60px; padding:0 18px; border-radius:14px;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  background:#fff; border:1px solid rgba(0,0,0,.08); box-shadow:0 8px 16px rgba(0,0,0,.05);
+  font-weight:700;
+}
+.hf-faq__q:hover{ background:#fffdf6; }
+.hf-faq__icon{ transition:transform .18s ease; opacity:.9; }
+.hf-faq__icon--open{ transform:rotate(180deg); }
+.hf-faq__a{
+  background:#fff; border:1px solid rgba(0,0,0,.06); border-top:0;
+  border-radius:0 0 14px 14px; padding:16px 18px; color:#444; line-height:1.7; font-size:.95rem;
+}
