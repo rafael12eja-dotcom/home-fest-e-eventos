@@ -20,7 +20,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const QuinzeAnosPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#FFF7EC] text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-[#FFF7EC] text-white flex flex-col">
       <Header />
 
       <main className="flex-1 pt-28">
@@ -46,12 +46,12 @@ const QuinzeAnosPage: React.FC = () => {
                   Festa de 15 anos em Belo Horizonte
                 </p>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)]">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)] text-white">
                   Uma festa de 15 anos completa, sofisticada e acolhedora, com clima de casa e estrutura de buffet.
                 </h1>
 
                 <p className="text-sm md:text-lg text-[#FFEBD1] max-w-xl">
-                  Da recepção ao jantar, a Home Fest & Eventos cuida de tudo: coquetel, estações gourmet, jantar Essenzia,
+                  Da recepção ao jantar, a Home Fest & Eventos cuida de tudo: coquetel, estações gourmet, jantar Home Fest,
                   doces finos e serviço completo, para que você e sua família possam viver cada momento com tranquilidade.
                 </p>
 
@@ -121,7 +121,7 @@ const QuinzeAnosPage: React.FC = () => {
                   <h3 className="font-semibold text-lg">Cardápios personalizados</h3>
                 </div>
                 <p className="text-sm text-[#6A4628]">
-                  Partimos dos cardápios oficiais Essenzia/Home Fest e fazemos ajustes finos conforme o gosto da debutante,
+                  Partimos dos cardápios oficiais Home Fest e fazemos ajustes finos conforme o gosto da debutante,
                   da família e do perfil de convidados.
                 </p>
               </div>
@@ -140,7 +140,7 @@ const QuinzeAnosPage: React.FC = () => {
                 Coquetel reforçado para receber bem os convidados.
               </h2>
               <p className="text-sm md:text-base text-[#6A4628] max-w-3xl">
-                Usamos a mesma base de coquetel dos eventos Essenzia/Home Fest, com variedade de salgados, doces e bebidas,
+                Usamos a mesma base de coquetel dos eventos Home Fest, com variedade de salgados, doces e bebidas,
                 adaptando a quantidade conforme a duração e o horário da festa de 15 anos.
               </p>
             </div>
@@ -167,10 +167,10 @@ const QuinzeAnosPage: React.FC = () => {
                   Doces e mesa de doces
                 </h3>
                 <p className="text-sm text-[#6A4628]">
-                  Estrutura de doces inspirada nos casamentos e eventos Essenzia, com:
+                  Estrutura de doces inspirada nos casamentos e eventos Home Fest, com:
                 </p>
                 <ul className="list-disc list-inside text-sm text-[#5B3B22] space-y-1">
-                  <li>Seleção de 15 tipos de doces, entre clássicos e finos.</li>
+                  <li>Seleção com 28 tipos de doces disponíveis, em que o cliente escolhe 7 sabores + 1 tipo de bombom.</li>
                   <li>Docinhos tradicionais (brigadeiro, beijinho, cajuzinho, moranguinho).</li>
                   <li>Doces especiais como camafeu, olho de sogra, trufas e bombons variados.</li>
                   <li>Montagem de mesa de doces com suporte para bolo e decoração parceira.</li>
@@ -203,13 +203,13 @@ const QuinzeAnosPage: React.FC = () => {
           <div className="max-w-6xl mx-auto px-6 md:px-8">
             <div className="mb-10 text-center md:text-left">
               <p className="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-[#B47A3F]">
-                Jantar Essenzia & estações gourmet
+                Jantar Home Fest & estações gourmet
               </p>
               <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
-                Cardápios Essenzia adaptados para o formato da festa de 15 anos.
+                Cardápios Home Fest adaptados para o formato da festa de 15 anos.
               </h2>
               <p className="text-sm md:text-base text-[#6A4628] max-w-3xl">
-                Trabalhamos com os cardápios oficiais de almoço e jantar Essenzia/Home Fest (Cardápios 1, 2, 3 e 4),
+                Trabalhamos com os cardápios oficiais de almoço e jantar Home Fest (Cardápios 1, 2, 3 e 4),
                 ajustando o serviço para que o jantar aconteça no momento ideal da festa.
               </p>
             </div>

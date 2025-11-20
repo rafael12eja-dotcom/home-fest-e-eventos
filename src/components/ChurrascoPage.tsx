@@ -11,7 +11,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const ChurrascoPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#FFF7EC] text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-[#FFF7EC] text-white flex flex-col">
       <Header />
 
       <main className="flex-1 pt-28">
@@ -34,7 +34,7 @@ const ChurrascoPage: React.FC = () => {
                 <p className="inline-flex items-center text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
                   Churrasco em Belo Horizonte
                 </p>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)]">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
                   Churrasco completo no seu espaço, com equipe, cortes selecionados e serviço de buffet.
                 </h1>
                 <p className="text-sm md:text-lg text-[#FFF3D9] max-w-xl">
@@ -47,14 +47,14 @@ const ChurrascoPage: React.FC = () => {
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hf-btn hf-btn--primary hf-btn--hero inline-flex items-center justify-center gap-2 text-base"
+                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
                   >
                     <Flame className="w-4 h-4" />
                     <span>Orçamento churrasco</span>
                   </a>
                   <a
                     href="#detalhes"
-                    className="hf-btn hf-btn--outline hf-btn--hero inline-flex items-center justify-center gap-2 text-base border-white/70 text-white hover:bg-white/10"
+                    className="hf-btn hf-btn--hero hf-btn-hero-secondary inline-flex items-center justify-center gap-2 text-base"
                   >
                     <span>Ver tudo o que está incluso</span>
                   </a>
@@ -268,7 +268,7 @@ const ChurrascoPage: React.FC = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hf-btn hf-btn--primary hf-btn--hero inline-flex items-center justify-center gap-2 text-base"
+                className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
               >
                 <Flame className="w-4 h-4" />
                 <span>Solicitar orçamento churrasco</span>

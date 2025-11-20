@@ -1,12 +1,7 @@
 import React from "react";
+import { Sparkles } from "lucide-react";
 
 export default function Hero() {
-  /**
-   * Auxiliar para rolar suavemente até o elemento de destino. Utiliza o
-   * comportamento nativo do navegador para garantir animação suave e
-   * respeitar o deslocamento do cabeçalho quando necessário. Caso o
-   * elemento não seja encontrado, apenas atualiza o hash da URL.
-   */
   const scrollTo = (hash: string) => {
     const el = document.querySelector(hash);
     if (el) {
@@ -17,8 +12,8 @@ export default function Hero() {
   };
 
   return (
-    <section id="topo" className="relative">
-      {/* Imagem de fundo: reutilizamos hero.jpg para criar atmosfera elegante. */}
+    <section id="topo" className="relative overflow-hidden">
+      {/* Imagem de fundo com overlay premium */}
       <div className="absolute inset-0">
         <picture>
           <source srcSet="/hero.webp" type="image/webp" />
@@ -32,41 +27,74 @@ export default function Hero() {
             decoding="async"
           />
         </picture>
-        {/* Véu e gradiente para melhorar contraste do texto sobre a foto */}
-        <div className="absolute inset-0 bg-[rgba(0,0,0,.35)]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-transparent" />
+        {/* Overlay gradiente sofisticado */}
+        <div className="absolute inset-0 bg-gradient-to-b from-hf-brown/70 via-hf-brown/50 to-hf-brown/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
       </div>
 
-      {/* Conteúdo principal do herói */}
+      {/* Conteúdo principal */}
       <div className="relative max-w-7xl mx-auto px-5 md:px-8">
-        <div className="min-h-[78vh] md:min-h-[86vh] flex flex-col justify-center">
-          {/* Headline otimizada para SEO com palavra-chave principal */}
-          <h1 className="font-serif text-white drop-shadow-md leading-tight">
-            <span className="block text-4xl sm:text-5xl md:text-6xl">
-              Buffet e Home Fest para festas em casa
+        <div className="min-h-[85vh] md:min-h-[90vh] flex flex-col justify-center py-20">
+          {/* Badge premium */}
+          <div className="inline-flex items-center gap-2 bg-hf-gold/20 backdrop-blur-md border-2 border-hf-gold/40 rounded-full px-5 py-2.5 mb-6 w-fit">
+            <Sparkles className="w-5 h-5 text-hf-gold-light" />
+            <span className="text-sm font-semibold text-white tracking-wide">
+              Experiências Gastronômicas Exclusivas
             </span>
-            <span className="block text-2xl sm:text-3xl md:text-4xl mt-3 text-white/95">
-              Eventos Corporativos e Sociais com Exclusividade
+          </div>
+
+          {/* Headline principal */}
+          <h1 className="font-serif text-white drop-shadow-2xl leading-[1.1] max-w-5xl">
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 bg-gradient-to-r from-white via-hf-cream to-white bg-clip-text text-transparent animate-fadeIn">
+              Buffet e Home Fest
+            </span>
+            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-hf-cream/95 animate-fadeIn animation-delay-200">
+              para festas em casa
             </span>
           </h1>
-          <p className="mt-4 max-w-3xl text-white/90 text-base sm:text-lg md:text-xl">
-            Transforme seu evento em uma experiência gastronômica inesquecível. Levamos estrutura completa e gastronomia autoral para festas em casa.
+
+          {/* Subtítulo */}
+          <p className="mt-6 max-w-3xl text-white/95 text-lg sm:text-xl md:text-2xl leading-relaxed font-light animate-fadeIn animation-delay-400">
+            Transforme seu evento em uma <strong className="font-semibold text-hf-gold-light">experiência gastronômica inesquecível</strong>.
           </p>
 
-          {/* Botão de ação */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          {/* CTAs */}
+          <div className="mt-10 flex flex-wrap items-center gap-4 animate-fadeIn animation-delay-600">
             <a
               href="#contato"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hf-btn hf-btn--primary hf-btn--hero"
+              className="hf-btn hf-btn--primary hf-btn--hero group"
               aria-label="Solicitar orçamento"
             >
-              Solicitar orçamento
+              <span>Solicitar Orçamento</span>
+              <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
             </a>
+            <button
+              onClick={() => scrollTo("#servicos")}
+              className="hf-btn hf-btn--outline hf-btn--hero bg-white/10 backdrop-blur-md border-white/40 text-white hover:bg-white hover:text-hf-brown hover:border-white"
+              aria-label="Ver serviços"
+            >
+              Ver Serviços
+            </button>
+          </div>
+
+          {/* Social proof sutil */}
+          <div className="mt-12 flex flex-wrap items-center gap-8 text-white/80 text-sm animate-fadeIn animation-delay-800">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-hf-gold border-2 border-white" />
+                <div className="w-8 h-8 rounded-full bg-hf-gold-light border-2 border-white" />
+                <div className="w-8 h-8 rounded-full bg-hf-gold-dark border-2 border-white" />
+              </div>
+              <span className="font-medium">+500 eventos realizados</span>
+            </div>
+            <div className="h-6 w-px bg-white/30" />
+            <span className="font-medium">⭐ 4.9/5 avaliação média</span>
           </div>
         </div>
       </div>
+
+      {/* Elemento decorativo inferior */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-hf-cream to-transparent" />
     </section>
   );
 }

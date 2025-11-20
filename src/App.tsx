@@ -14,6 +14,8 @@ import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
 import FinalCTA from "./components/FinalCTA";
+import BlogListPage from "./components/BlogListPage";
+import BlogPostPage from "./components/BlogPostPage";
 import Footer from "./components/Footer";
 import PartnersSection from "./components/PartnersSection";
 import WhatsAppButton from "./components/WhatsAppButton";
@@ -28,6 +30,9 @@ import ChurrascoPage from "./components/ChurrascoPage";
 import AlmocoJantarPage from "./components/AlmocoJantarPage";
 import FestaEscolarPage from "./components/FestaEscolarPage";
 import QuinzeAnosPage from "./components/QuinzeAnosPage";
+import AniversarioAdultoPage from "./components/AniversarioAdultoPage";
+import CasamentoPage from "./components/CasamentoPage";
+import ConfraternizacaoCorporativaPage from "./components/ConfraternizacaoCorporativaPage";
 
 const App: React.FC = () => {
   const pathname =
@@ -49,6 +54,11 @@ const App: React.FC = () => {
     const isAlmocoJantar = pathname === "/buffet-almoco-jantar-bh";
     const isFestaEscolar = pathname === "/festa-escolar-bh";
     const isQuinzeAnos = pathname === "/festa-15-anos-bh";
+    const isAniversarioAdulto = pathname === "/aniversario-adulto-bh";
+    const isCasamento = pathname === "/buffet-casamento-bh";
+    const isConfraternizacaoCorporativa = pathname === "/confraternizacao-corporativa-bh";
+    const isBlogList = pathname === "/blog";
+    const isBlogPost = pathname.startsWith("/blog/");
 
     const baseTitle = "Home Fest & Eventos";
     const baseSuffix = "Buffet e Home Fest em Belo Horizonte – MG";
@@ -73,6 +83,13 @@ const App: React.FC = () => {
       title = "Festa de 15 anos em Belo Horizonte | Home Fest & Eventos";
       description = "Festa de 15 anos em Belo Horizonte com coquetel, jantar e serviço completo para debuts em casas, salões, sítios e espaços de eventos.";
     }
+    else if (isAniversarioAdulto) {
+      // SEO aniversário adulto já configurado acima
+
+      title = "Aniversário adulto em Belo Horizonte | Home Fest & Eventos";
+      description =
+        "Buffet para aniversário adulto em Belo Horizonte com diferentes formatos: coquetel, jantar completo, buffet e churrasco elegante, com equipe completa e gastronomia autoral no conforto do seu espaço.";
+    }
 
     document.title = title;
 
@@ -89,6 +106,81 @@ const App: React.FC = () => {
       meta.content = description;
       document.head.appendChild(meta);
     }
+
+
+// Canonical e metatags sociais dinâmicas por rota
+const baseUrl = "https://homefesteeventos.com.br";
+
+let canonicalPath = "/";
+if (isBuffetInfantil) {
+  canonicalPath = "/buffet-infantil-bh";
+} else if (isChurrasco) {
+  canonicalPath = "/buffet-churrasco-bh";
+} else if (isAlmocoJantar) {
+  canonicalPath = "/buffet-almoco-jantar-bh";
+} else if (isFestaEscolar) {
+  canonicalPath = "/festa-escolar-bh";
+} else if (isQuinzeAnos) {
+  canonicalPath = "/festa-15-anos-bh";
+} else if (isAniversarioAdulto) {
+  canonicalPath = "/aniversario-adulto-bh";
+} else if (isCasamento) {
+  canonicalPath = "/buffet-casamento-bh";
+} else if (isConfraternizacaoCorporativa) {
+  canonicalPath = "/confraternizacao-corporativa-bh";
+} else if (isBlogList) {
+  canonicalPath = "/blog";
+}
+
+const canonicalUrl = `${baseUrl}${canonicalPath}`;
+
+const canonicalLink = document.querySelector(
+  'link[rel="canonical"]'
+) as HTMLLinkElement | null;
+
+if (canonicalLink) {
+  canonicalLink.href = canonicalUrl;
+} else {
+  const linkEl = document.createElement("link");
+  linkEl.rel = "canonical";
+  linkEl.href = canonicalUrl;
+  document.head.appendChild(linkEl);
+}
+
+const ogUrl = document.querySelector(
+  'meta[property="og:url"]'
+) as HTMLMetaElement | null;
+if (ogUrl) {
+  ogUrl.content = canonicalUrl;
+}
+
+const ogTitle = document.querySelector(
+  'meta[property="og:title"]'
+) as HTMLMetaElement | null;
+if (ogTitle) {
+  ogTitle.content = title;
+}
+
+const ogDescription = document.querySelector(
+  'meta[property="og:description"]'
+) as HTMLMetaElement | null;
+if (ogDescription) {
+  ogDescription.content = description;
+}
+
+const twitterTitle = document.querySelector(
+  'meta[name="twitter:title"]'
+) as HTMLMetaElement | null;
+if (twitterTitle) {
+  twitterTitle.content = title;
+}
+
+const twitterDescription = document.querySelector(
+  'meta[name="twitter:description"]'
+) as HTMLMetaElement | null;
+if (twitterDescription) {
+  twitterDescription.content = description;
+}
 
     // JSON-LD dinâmico por rota (Service + BreadcrumbList)
     const existingServiceSchemas = document.querySelectorAll<HTMLScriptElement>(
@@ -238,6 +330,75 @@ const App: React.FC = () => {
           ]
         }
       );
+    } else if (isAniversarioAdulto) {
+      serviceSchemas.push(
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Buffet para aniversário adulto em Belo Horizonte",
+          "url": "https://homefesteeventos.com.br/aniversario-adulto-bh",
+          "provider": baseBusiness,
+          "areaServed": cityBH,
+          "serviceType": "Buffet para aniversário adulto",
+          "description": "Buffet para aniversário adulto em Belo Horizonte com diferentes formatos de serviço, gastronomia autoral e equipe completa para festas em casas, salões, sítios e empresas."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Aniversário adulto em BH", "item": "https://homefesteeventos.com.br/aniversario-adulto-bh" }
+          ]
+        }
+      );
+    }
+
+
+    else if (isCasamento) {
+      serviceSchemas.push(
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Buffet para casamento em Belo Horizonte",
+          "url": "https://homefesteeventos.com.br/buffet-casamento-bh",
+          "provider": baseBusiness,
+          "areaServed": cityBH,
+          "serviceType": "Buffet para casamento",
+          "description": "Buffet completo para casamento em Belo Horizonte com coquetel, jantar, bebidas não alcoólicas e equipe presente em casas, salões, sítios e espaços de eventos."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Buffet para casamento em Belo Horizonte", "item": "https://homefesteeventos.com.br/buffet-casamento-bh" }
+          ]
+        }
+      );
+    }
+
+
+    else if (isConfraternizacaoCorporativa) {
+      serviceSchemas.push(
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Confraternização corporativa em Belo Horizonte",
+          "url": "https://homefesteeventos.com.br/confraternizacao-corporativa-bh",
+          "provider": baseBusiness,
+          "areaServed": cityBH,
+          "serviceType": "Buffet para confraternização corporativa",
+          "description": "Buffet completo para confraternizações corporativas em Belo Horizonte com coquetel, almoço, jantar e serviço de equipe no espaço da empresa ou em locais parceiros."
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
+            { "@type": "ListItem", "position": 2, "name": "Confraternização corporativa em Belo Horizonte", "item": "https://homefesteeventos.com.br/confraternizacao-corporativa-bh" }
+          ]
+        }
+      );
     }
 
     if (serviceSchemas.length > 0) {
@@ -293,6 +454,51 @@ const App: React.FC = () => {
       <>
         <QuinzeAnosPage />
 
+      </>
+    );
+  }
+
+  if (pathname === "/aniversario-adulto-bh") {
+    return (
+      <>
+        <AniversarioAdultoPage />
+
+      </>
+    );
+  }
+
+
+
+  if (pathname === "/buffet-casamento-bh") {
+    return (
+      <>
+        <CasamentoPage />
+
+      </>
+    );
+  }
+
+  if (pathname === "/confraternizacao-corporativa-bh") {
+    return (
+      <>
+        <ConfraternizacaoCorporativaPage />
+
+      </>
+    );
+  }
+
+  if (pathname === "/blog") {
+    return (
+      <>
+        <BlogListPage />
+      </>
+    );
+  }
+
+  if (pathname.startsWith("/blog/")) {
+    return (
+      <>
+        <BlogPostPage />
       </>
     );
   }

@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Bloqueio de áreas técnicas que não precisam ser indexadas
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /tsconfig.json
+Disallow: /vite.config.ts
+
+Sitemap: https://homefesteeventos.com.br/sitemap.xml
+Host: homefesteeventos.com.br

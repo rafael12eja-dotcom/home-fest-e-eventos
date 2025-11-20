@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 
 type QA = {
   q: string;
@@ -47,7 +48,6 @@ export default function FAQ() {
     setOpen((curr) => (curr === idx ? null : idx));
   };
 
-  // Schema.org JSON-LD para FAQPage
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -63,91 +63,96 @@ export default function FAQ() {
 
   return (
     <>
-      {/* Injetar Schema.org no head */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section id="faq" className="bg-[#FFF9F0] py-16 md:py-24 px-5 md:px-8">
+      <section id="faq" className="bg-gradient-to-b from-white to-hf-cream py-16 md:py-24 px-5 md:px-8">
         <div className="max-w-4xl mx-auto">
-          {/* Título otimizado para SEO */}
-          <h2 className="font-serif text-center text-4xl md:text-5xl text-[#111]">
-            Perguntas Frequentes sobre Buffet e Home Fest
-          </h2>
-          <p className="text-center text-lg text-[#404040] mt-2 mb-10">
-            Tire suas dúvidas sobre nossos serviços de buffet e catering para festas em casa
-          </p>
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-hf-gold/10 border-2 border-hf-gold/30 rounded-full px-5 py-2 mb-6">
+              <HelpCircle className="w-4 h-4 text-hf-gold" />
+              <span className="text-sm font-semibold text-hf-gold tracking-wide">
+                Dúvidas Frequentes
+              </span>
+            </div>
 
-          {/* Accordion */}
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-hf-brown mb-4">
+              Perguntas Frequentes
+            </h2>
+            <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              Tire suas dúvidas sobre nossos serviços de buffet e catering para festas em casa
+            </p>
+          </div>
+
+          {/* Accordion Premium */}
           <div className="space-y-4">
             {faqs.map((item, idx) => {
               const isOpen = open === idx;
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl bg-white ring-1 ring-black/5 shadow-[0_8px_26px_-14px_rgba(0,0,0,.18)]"
+                  className={`hf-faq__item transition-all duration-300 ${isOpen ? 'scale-[1.02]' : ''}`}
                   itemScope
                   itemProp="mainEntity"
                   itemType="https://schema.org/Question"
                 >
                   <button
                     onClick={() => toggle(idx)}
-                    className="w-full flex items-center justify-between gap-4 text-left px-5 md:px-6 py-4 md:py-5"
+                    className="hf-faq__q"
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${idx}`}
                   >
                     <h3 
-                      className="text-[17px] md:text-[18px] font-medium text-[#111]"
+                      className="text-base md:text-lg flex-1 text-left"
                       itemProp="name"
                     >
                       {item.q}
                     </h3>
 
-                    <svg
-                      className={`shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180" : "rotate-0"
-                      }`}
-                      width="22"
-                      height="22"
-                      viewBox="0 0 24 24"
-                      fill="none"
+                    <ChevronDown
+                      className={`hf-faq__icon ${isOpen ? 'hf-faq__icon--open' : ''}`}
+                      size={24}
                       aria-hidden="true"
-                    >
-                      <path
-                        d="M6 9l6 6 6-6"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
+                    />
                   </button>
 
-                  <div
-                    id={`faq-panel-${idx}`}
-                    className={`${isOpen ? "block" : "hidden"} px-5 md:px-6 pb-5 md:pb-6 text-[#3a3a3a] leading-relaxed`}
-                    itemScope
-                    itemProp="acceptedAnswer"
-                    itemType="https://schema.org/Answer"
-                  >
-                    <div itemProp="text">{item.a}</div>
-                  </div>
+                  {isOpen && (
+                    <div
+                      id={`faq-panel-${idx}`}
+                      className="hf-faq__a animate-fadeIn"
+                      itemScope
+                      itemProp="acceptedAnswer"
+                      itemType="https://schema.org/Answer"
+                    >
+                      <div itemProp="text">{item.a}</div>
+                    </div>
+                  )}
                 </div>
               );
             })}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-lg text-[#404040] mb-6">
+          {/* CTA */}
+          <div className="mt-16 text-center bg-gradient-to-br from-hf-gold/5 to-hf-gold-dark/5 border-2 border-hf-gold/20 rounded-3xl p-8 md:p-10">
+            <MessageCircle className="w-12 h-12 text-hf-gold mx-auto mb-4" />
+            <p className="text-xl md:text-2xl font-semibold text-hf-brown mb-3">
               Não encontrou a resposta que procurava?
             </p>
+            <p className="text-neutral-600 mb-6 max-w-xl mx-auto">
+              Nossa equipe está pronta para esclarecer todas as suas dúvidas e criar um orçamento personalizado.
+            </p>
             <a
-              href="#contato"
+              href="https://wa.me/5531999186245"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-neutral-900 bg-gradient-to-r from-[#E9C779] via-[#D4AF37] to-[#e9c1a8] shadow-[0_8px_20px_rgba(212,175,55,.35)] hover:opacity-95 transition"
-             aria-label="Chamar no WhatsApp">
-              Fale Conosco pelo WhatsApp
+              className="hf-btn hf-btn--primary mx-auto group"
+              aria-label="Chamar no WhatsApp"
+            >
+              <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span>Fale Conosco pelo WhatsApp</span>
             </a>
           </div>
         </div>
