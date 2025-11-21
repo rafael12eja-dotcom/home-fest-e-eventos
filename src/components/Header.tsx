@@ -113,7 +113,7 @@ const Header: React.FC = () => {
               e.preventDefault();
               goHome();
             }}
-            className="flex-shrink-0 inline-flex items-center gap-3 px-2 py-1.5 rounded-2xl border border-transparent transition-transform duration-300 hover:scale-105"
+            className="flex-shrink-0 inline-flex items-center justify-center cursor-pointer focus:outline-none rounded-xl focus-visible:ring-2 focus-visible:ring-hf-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent transition-transform duration-300 hover:scale-105 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
             aria-label="Voltar para a página inicial Home Fest & Eventos"
           >
             <picture>
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
               <img
                 src="/logo.png"
                 alt="Home Fest & Eventos - Buffet e Home Fest para festas em casa"
-                className="h-16 md:h-16 lg:h-24 xl:h-28 2xl:h-32 w-auto drop-shadow-[0_8px_24px_rgba(217,164,65,.35)]"
+                className="h-20 sm:h-20 md:h-16 lg:h-24 xl:h-28 2xl:h-32 w-auto drop-shadow-[0_8px_24px_rgba(217,164,65,.35)]"
                 width={260}
                 height={140}
                 loading="eager"

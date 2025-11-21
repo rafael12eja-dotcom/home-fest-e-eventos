@@ -1,203 +1,151 @@
-import React, { useEffect, useState } from "react";
+// src/components/BlogListPage.tsx
+import React, { useEffect, useMemo, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { fetchBlogPosts, BlogPostSummary } from "../data/blogApi";
+import { getBlogPosts, BlogPost } from "../data/blogApi";
 
 const BlogListPage: React.FC = () => {
-  const [posts, setPosts] = useState<BlogPostSummary[]>([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const getCoverImage = (post: BlogPostSummary) => {
-    if (post.coverImage && post.coverImage.trim() !== "") {
-      return post.coverImage;
-    }
-    return "/og-cover.webp";
-  };
-
-
   useEffect(() => {
-    if (typeof document === "undefined" || typeof window === "undefined") return;
-
-    const baseTitle = "Home Fest & Eventos";
-    const pageTitle = `Blog de festas em casa | ${baseTitle}`;
-    const description =
-      "Blog da Home Fest & Eventos em Belo Horizonte: dicas para organizar festas em casa, cardápios completos, decoração e experiências acolhedoras para todas as idades.";
-
-    // Title
-    document.title = pageTitle;
-
-    // Meta description
-    let metaDesc = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-    if (!metaDesc) {
-      metaDesc = document.createElement("meta");
-      metaDesc.name = "description";
-      document.head.appendChild(metaDesc);
-    }
-    metaDesc.content = description;
-
-    // Canonical
-    const canonicalHref = "https://homefesteeventos.com.br/blog";
-    let canonical = document.querySelector(
-      'link[rel="canonical"]'
-    ) as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = canonicalHref;
-
-    // JSON-LD: Blog / CollectionPage
-    const oldScripts = document.querySelectorAll(
-      'script[data-hf-schema="bloglist"]'
-    );
-    oldScripts.forEach((el) => el.parentNode?.removeChild(el));
-
-    const ld = {
-      "@context": "https://schema.org",
-      "@type": ["Blog", "CollectionPage"],
-      url: canonicalHref,
-      name: "Blog Home Fest & Eventos",
-      description,
-    };
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.setAttribute("data-hf-schema", "bloglist");
-    script.text = JSON.stringify(ld);
-    document.head.appendChild(script);
-  }, []);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function load() {
+    let mounted = true;
+    (async () => {
       try {
         setLoading(true);
-        setError(null);
-        const data = await fetchBlogPosts();
-        if (isMounted) {
-          setPosts(data);
-        }
-      } catch (err) {
-        console.error("Erro ao carregar posts do blog:", err);
-        if (isMounted) {
-          setError(
-            "Não foi possível carregar os artigos do blog agora. Tente novamente em alguns instantes."
-          );
-        }
+        const data = await getBlogPosts();
+        if (mounted) setPosts(data || []);
+      } catch (e: any) {
+        if (mounted) setError("Não foi possível carregar os posts agora.");
       } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
+        if (mounted) setLoading(false);
       }
-    }
-
-    load();
-
+    })();
     return () => {
-      isMounted = false;
+      mounted = false;
     };
   }, []);
 
-  const handleOpenPost = (slug: string) => {
-    if (typeof window === "undefined") return;
-    window.location.href = `/blog/${slug}`;
-  };
+  const sortedPosts = useMemo(
+    () => [...posts].sort((a, b) => (a.date < b.date ? 1 : -1)),
+    [posts]
+  );
+
+  useEffect(() => {
+    const ldBlog = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog Home Fest & Eventos",
+      "description":
+        "Conteúdos práticos e inspiradores sobre festa em casa, buffet em domicílio, churrasco, brunch, aniversários e casamentos intimistas em Belo Horizonte.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Home Fest & Eventos",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "addressCountry": "BR",
+        },
+      },
+    };
+
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://homefesteeventos.com.br/",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://homefesteeventos.com.br/blog",
+        },
+      ],
+    };
+
+    const existing = document.getElementById("blog-ld-json");
+    if (existing) existing.remove();
+
+    const script = document.createElement("script");
+    script.id = "blog-ld-json";
+    script.type = "application/ld+json";
+    script.text = JSON.stringify([ldBlog, breadcrumb]);
+    document.head.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-[#FFF8F0] text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-[#FFF7EE]">
       <Header />
+      <main className="pt-28 max-w-6xl mx-auto px-4 pb-16">
+        <header className="mb-10">
+          <h1 className="text-3xl md:text-4xl font-serif font-semibold text-hf-brown mb-3">
+            Blog Home Fest BH
+          </h1>
+          <p className="text-base md:text-lg text-[#5A3E2B] max-w-3xl leading-relaxed">
+            Inspirações e guias completos sobre festa em casa, buffet em domicílio,
+            churrasco, brunch, aniversários e casamentos intimistas em Belo Horizonte.
+          </p>
+        </header>
 
-      <main className="pt-28 md:pt-32 lg:pt-40 pb-16">
-        <section className="bg-hf-cream/80 border-b border-hf-gold/15">
-          <div className="max-w-6xl mx-auto px-6 py-10 md:py-14">
-            <p className="text-xs font-semibold tracking-[0.24em] uppercase text-hf-gold mb-3">
-              Conteúdo para quem ama receber bem
-            </p>
-            <h1 className="text-3xl md:text-4xl font-serif font-bold text-hf-brown mb-4">
-              Blog Home Fest &amp; Eventos
-            </h1>
-            <p className="text-[15px] md:text-base text-hf-brown/80 max-w-2xl">
-              Dicas de buffet, ideias de festas em casa, inspirações de cardápio e orientações
-              práticas para organizar eventos acolhedores em Belo Horizonte e região.
-            </p>
-          </div>
-        </section>
+        {loading && <div className="text-[#5A3E2B]">Carregando posts...</div>}
+        {error && !loading && <div className="text-[#5A3E2B]">{error}</div>}
 
-        <section className="max-w-6xl mx-auto px-6 pt-8 pb-16">
-          {loading && (
-            <p className="text-sm text-hf-brown/70">
-              Carregando artigos do blog...
-            </p>
-          )}
-
-          {error && !loading && (
-            <p className="text-sm text-red-700 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
-              {error}
-            </p>
-          )}
-
-          {!loading && !error && posts.length === 0 && (
-            <p className="text-sm text-hf-brown/70">
-              Ainda não há artigos publicados no blog. Em breve, este espaço será atualizado com
-              conteúdos especiais para você.
-            </p>
-          )}
-
-          {!loading && !error && posts.length > 0 && (
-            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mt-4">
-              {posts.map((post) => (
-                <article
-                  key={post.slug}
-                  className="group bg-white/90 border border-hf-gold/15 rounded-3xl overflow-hidden shadow-sm hover:shadow-[0_18px_45px_rgba(74,63,53,0.14)] hover:-translate-y-[2px] transition-all duration-300 flex flex-col cursor-pointer"
-                  onClick={() => handleOpenPost(post.slug)}
-                >
-                  {post.coverImage && (
-                    <div className="aspect-[16/9] w-full overflow-hidden">
-                      <img
-                        src={getCoverImage(post)}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                  <div className="flex-1 flex flex-col px-5 py-4 md:px-6 md:py-5">
-                    <div className="flex items-center gap-3 text-[11px] text-hf-brown/60 mb-2">
-                      <span>{post.date}</span>
-                      <span className="h-1 w-1 rounded-full bg-hf-gold/70" />
-                      <span>{post.readingTime}</span>
-                    </div>
-                    <h2 className="text-[18px] md:text-[19px] font-serif font-semibold text-hf-brown mb-2">
-                      {post.title}
-                    </h2>
-                    <p className="text-[14px] text-hf-brown/80 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    {post.tags && post.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {post.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-[11px] uppercase tracking-[0.18em] bg-hf-cream/80 text-hf-brown px-2.5 py-1 rounded-full border border-hf-gold/20"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+        {!loading && !error && (
+          <section className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
+            {sortedPosts.map((post) => (
+              <article
+                key={post.slug}
+                className="break-inside-avoid mb-6 bg-white rounded-3xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] overflow-hidden hover:shadow-[0_14px_34px_rgba(0,0,0,0.10)] transition"
+              >
+                <a href={`/blog/${post.slug}`} aria-label={`Ler artigo ${post.title}`}>
+                  <div className="relative">
+                    <img
+                      src={post.cover}
+                      alt={post.title}
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
+                    <span className="absolute top-3 left-3 bg-white/90 text-hf-brown text-xs font-semibold px-3 py-1 rounded-full">
+                      {post.category}
+                    </span>
                   </div>
-                </article>
-              ))}
-            </div>
-          )}
-        </section>
-      </main>
+                </a>
 
+                <div className="p-5">
+                  <div className="text-xs text-[#8A6A55] mb-2">
+                    {post.date} • {post.readingTime}
+                  </div>
+                  <h2 className="text-lg md:text-xl font-serif font-semibold text-hf-brown leading-snug mb-2">
+                    <a href={`/blog/${post.slug}`} className="hover:underline">
+                      {post.title}
+                    </a>
+                  </h2>
+                  <p className="text-sm md:text-base text-[#5A3E2B] leading-relaxed mb-4">
+                    {post.description}
+                  </p>
+                  <a
+                    href={`/blog/${post.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-hf-brown hover:opacity-80"
+                  >
+                    Ler artigo <span aria-hidden>→</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </section>
+        )}
+      </main>
       <Footer />
     </div>
   );
