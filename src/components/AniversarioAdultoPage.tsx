@@ -26,54 +26,84 @@ const AniversarioAdultoPage: React.FC = () => {
 
       <main className="flex-1 pt-24 md:pt-28 lg:pt-32">
         {/* HERO */}
-        <section className="relative w-full h-[70vh] min-h-[520px] overflow-hidden">
-          <picture>
-            <source
-              media="(max-width: 768px)"
-              srcSet="/aniversario-adulto-hero-mobile.webp"
-              type="image/webp"
-            />
-            <img
-              src="/aniversario-adulto-hero-desktop.webp"
-              alt="Brinde elegante em um aniversário adulto sofisticado"
-              className="w-full h-full object-cover"
-              loading="eager"
-              decoding="async"
-            />
-          </picture>
+        <section id="topo" className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcSet="/aniversario-adulto-hero-mobile.webp"
+                type="image/webp"
+              />
+              <img
+                src="/aniversario-adulto-hero-desktop.webp"
+                alt="Aniversário adulto em BH com buffet completo da Home Fest"
+                className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+          </div>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-transparent" />
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex-1">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-white/90 text-xs md:text-sm tracking-widest uppercase">
+                Buffet para aniversário adulto em BH
+              </div>
 
-          <div className="relative max-w-6xl mx-auto px-6 md:px-8 lg:px-10 h-full flex items-center">
-            <div className="max-w-xl space-y-5 text-white bg-black/45 backdrop-blur-md rounded-3xl px-5 py-6 md:px-7 md:py-7 shadow-[0_18px_45px_rgba(0,0,0,.55)]">
-              <p className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
-                <Sparkles className="w-4 h-4" />
-                Aniversário adulto em Belo Horizonte
-              </p>
-
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)]">
-                Festa de aniversário adulto com buffet completo e clima de casa.
+              <h1 className="mt-6 text-white text-4xl md:text-6xl font-semibold leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.65)]">
+                Uma festa adulta com serviço profissional e aconchego de casa.
               </h1>
 
-              <p className="text-sm md:text-lg text-[#FFEBD1]">
-                A Home Fest & Eventos leva estrutura de buffet, equipe e gastronomia autoral para
-                comemorações adultas em casa, salões de prédio, sítios e espaços de eventos em Belo Horizonte.
+              <p className="mt-5 text-white/90 text-base md:text-lg max-w-2xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
+                Jantares intimistas, festas animadas, encontros ao ar livre ou celebrações em família — a Home Fest adapta cardápios, equipe e montagem ao seu estilo.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <a
-                  href={whatsappLink}
+                  href={`https://wa.me/${whatsappNumber}?text=Olá! Gostaria de orçamento para aniversário adulto em BH.`}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-sm md:text-base"
-                  aria-label="Solicitar orçamento para aniversário adulto com a Home Fest & Eventos em Belo Horizonte"
+                  rel="noreferrer"
+                  className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center"
                 >
-                  <span>Solicitar orçamento para aniversário adulto</span>
+                  Solicitar orçamento
                 </a>
 
-                <p className="text-xs md:text-sm text-[#FFE0BB] max-w-xs">
-                  Atendemos aniversários adultos em diferentes formatos: coquetel, jantar, buffet completo e churrasco.
-                </p>
+                <a
+                  href="#formatos"
+                  className="hf-btn hf-btn--outline hf-btn-hero-outline inline-flex items-center justify-center"
+                >
+                  Ver formatos
+                </a>
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-6 text-white/90 text-sm">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Atendimento em BH e região
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  Festas a partir de 50 pessoas
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="w-4 h-4" />
+                  Gastronomia autoral e equipe completa
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full lg:w-[420px]">
+              <div className="bg-white/95 rounded-3xl p-6 md:p-8 shadow-2xl">
+                <h2 className="text-sm font-semibold tracking-widest uppercase text-hf-brown/80">
+                  Para diferentes estilos de aniversários
+                </h2>
+                <ul className="mt-4 space-y-3 text-hf-brown text-sm md:text-base leading-relaxed">
+                  <li>Coquetel adulto com finger foods, canapés e estações gourmets.</li>
+                  <li>Jantar completo com pratos principais, acompanhamentos e sobremesas.</li>
+                  <li>Churrasco elegante com cortes selecionados e serviço completo de buffet.</li>
+                  <li>Formatos híbridos, unindo coquetel reforçado, jantar ou churrasco.</li>
+                </ul>
               </div>
             </div>
           </div>
