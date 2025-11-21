@@ -26,156 +26,68 @@ const CasamentoPage: React.FC = () => {
 
       <main className="flex-1 pt-24 md:pt-28 lg:pt-32">
         {/* HERO CASAMENTO */}
+        
         <section id="topo" className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <img
-              src="/buffet-casamento-bh.jpg"
-              alt="Decoração de casamento com flores brancas e luzes aconchegantes"
-              className="w-full h-full object-cover"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.55)_0,_rgba(0,0,0,0.85)_55%,_rgba(0,0,0,0.9)_100%)]" />
+            <picture>
+              <source srcSet="/hero/buffet-casamento-bh-home-fest-eventos.webp" type="image/webp" />
+              <img
+                src="/hero/buffet-casamento-bh-home-fest-eventos.jpg"
+                alt="Buffet para casamento em BH – Home Fest & Eventos"
+                className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
           </div>
 
-          <div className="relative max-w-6xl mx-auto px-6 md:px-10 py-20 md:py-24 lg:py-28">
-            <div className="grid lg:grid-cols-[1.35fr_minmax(0,1fr)] gap-10 items-center">
-              <div className="space-y-5 md:space-y-6 text-white">
-                <p className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.22em] uppercase text-[#FBD9A2]">
-                  <Sparkles className="w-4 h-4" />
-                  <span>Buffet para casamento em Belo Horizonte</span>
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex-1">
+              <div className="space-y-5 text-white bg-black/55 backdrop-blur-[2px] rounded-3xl px-5 py-6 md:px-7 md:py-7 shadow-[0_18px_45px_rgba(0,0,0,.55)]">
+                <p className="inline-flex items-center text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
+                  Casamento em Belo Horizonte
                 </p>
-
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)]">
-                  Casamento com clima de casa, gastronomia autoral e serviço completo no seu espaço.
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
+                  Buffet para Casamento em BH com experiência completa no seu espaço.
                 </h1>
-
-                <p className="text-sm md:text-lg text-[#FFEBD1] max-w-xl">
-                  A Home Fest &amp; Eventos leva estrutura de buffet, equipe e cardápio completo para casamentos em casas,
-                  salões de prédio, sítios e espaços de eventos em Belo Horizonte e região. Você foca em viver o momento;
-                  nós cuidamos da experiência dos convidados.
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  Casamento com clima de casa, gastronomia autoral e serviço completo no seu espaço.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-3 pt-1.5">
+                <div className="flex flex-col sm:flex-row gap-3 pt-3">
                   <a
                     href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-sm md:text-base"
-                    aria-label="Solicitar orçamento de buffet para casamento com a Home Fest & Eventos em Belo Horizonte"
+                    className="inline-flex items-center justify-center rounded-full bg-[#D9A441] text-black font-semibold px-6 py-3 text-sm md:text-base shadow hover:brightness-95 transition"
                   >
-                    <UtensilsCrossed className="w-4 h-4" />
-                    <span>Solicitar orçamento para casamento</span>
+                    Solicitar orçamento
                   </a>
-
                   <a
                     href="#formatos"
-                    className="hf-btn hf-btn--hero hf-btn-hero-secondary inline-flex items-center justify-center gap-2 text-sm md:text-base"
+                    className="inline-flex items-center justify-center rounded-full border border-white/70 text-white font-semibold px-6 py-3 text-sm md:text-base hover:bg-white/10 transition"
                   >
-                    <Star className="w-4 h-4" />
-                    <span>Ver formatos de casamento</span>
+                    Ver formatos
                   </a>
                 </div>
-
-                <p className="text-xs md:text-sm text-[#FFE0BB] max-w-xs">
-                  Atendemos mini weddings, casamentos intimistas e recepções pós-cerimônia em diferentes espaços.
-                </p>
               </div>
+            </div>
 
-              <div className="hidden lg:flex flex-col gap-4 bg-white/95 rounded-3xl shadow-[0_24px_65px_rgba(31,22,13,.45)] p-6 border border-white/60">
-                <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#B47A3F]">
-                  O QUE CUIDAMOS POR VOCÊ
+            {/* CARD LATERAL */}
+            <div className="w-full lg:w-[420px]">
+              <div className="bg-white/95 rounded-3xl p-6 md:p-7 shadow-xl text-[#3B2412]">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#B47A3F] mb-3">
+                  O que cuidamos por você
                 </p>
-                <ul className="space-y-3 text-sm text-[#4B2E1A]">
-                  <li className="flex gap-2">
-                    <CakeSlice className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Coquetel de boas-vindas com petiscos, mini porções e mesa de antepastos.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <UtensilsCrossed className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Jantar completo no estilo Home Fest, servido em travessas, ilhas ou empratado.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CupSoda className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Serviço contínuo de bebidas não alcoólicas com equipe circulando pelo salão.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Users className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Equipe treinada de cozinha, salão, recepção e coordenação de buffet.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Clock3 className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Tempo de atendimento planejado conforme o roteiro da cerimônia e da festa.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <MapPin className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Atendimento em Belo Horizonte e região, em casas, salões, sítios e espaços de eventos.</span>
-                  </li>
+                <ul className="space-y-3 text-sm md:text-base text-[#6A4628]">
+                  <li className="flex gap-2"><span>•</span><span>Estrutura completa no seu espaço com equipe especializada.</span></li>
+                  <li className="flex gap-2"><span>•</span><span>Cardápios autorais flexíveis para o seu estilo de celebração.</span></li>
+                  <li className="flex gap-2"><span>•</span><span>Bebidas, louças, utensílios e logística inclusos.</span></li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
-
-        {/* FORMATOS DE CASAMENTO */}
-        <section id="formatos" className="bg-[#FFF7EC] py-16 md:py-20">
-          <div className="max-w-5xl mx-auto px-6 md:px-8">
-            <div className="mb-10 text-center md:text-left">
-              <p className="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-[#B47A3F]">
-                Formatos de casamento que atendemos
-              </p>
-              <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
-                Casamentos intimistas, mini weddings e recepções no seu espaço.
-              </h2>
-              <p className="text-sm md:text-base text-[#6C4930] max-w-3xl">
-                Cada casamento tem uma história, um tamanho e um ritmo. A Home Fest &amp; Eventos adapta o serviço de buffet
-                ao seu projeto: do mini wedding em casa ao casamento em sítios e espaços de eventos, sempre com o mesmo padrão
-                de acolhimento, organização e gastronomia autoral.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl shadow-[0_10px_35px_rgba(46,33,21,.18)] p-6 border border-[#F4D3A7]">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#B47A3F] mb-1.5">
-                  MINI WEDDINGS
-                </p>
-                <h3 className="text-lg font-serif font-semibold text-[#3B2412] mb-2">
-                  Casamentos intimistas em casa ou salão do prédio
-                </h3>
-                <p className="text-sm text-[#6C4930]">
-                  Ideal para quem deseja reunir família e amigos próximos em um ambiente acolhedor, com jantar completo,
-                  coquetel e serviço cuidadoso, sem abrir mão da sofisticação.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-[0_10px_35px_rgba(46,33,21,.18)] p-6 border border-[#F4D3A7]">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#B47A3F] mb-1.5">
-                  CASAMENTOS EM SÍTIOS
-                </p>
-                <h3 className="text-lg font-serif font-semibold text-[#3B2412] mb-2">
-                  Estrutura de buffet para casamentos ao ar livre
-                </h3>
-                <p className="text-sm text-[#6C4930]">
-                  Levamos toda a operação de buffet para sítios e espaços abertos: montagem de estações, equipe completa,
-                  logística de atendimento e cardápio adaptado ao clima do evento.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-[0_10px_35px_rgba(46,33,21,.18)] p-6 border border-[#F4D3A7]">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#B47A3F] mb-1.5">
-                  RECEPÇÕES PÓS-CERIMÔNIA
-                </p>
-                <h3 className="text-lg font-serif font-semibold text-[#3B2412] mb-2">
-                  Coquetel e jantar para celebrar depois do “sim”
-                </h3>
-                <p className="text-sm text-[#6C4930]">
-                  Para casais que realizam a cerimônia em igreja ou cartório e recebem os convidados em outro espaço,
-                  cuidamos do coquetel, jantar e serviço completo de buffet.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+    
 
         {/* O QUE INCLUI O BUFFET DE CASAMENTO */}
         <section className="bg-[#FDF3E4] py-16 md:py-20">

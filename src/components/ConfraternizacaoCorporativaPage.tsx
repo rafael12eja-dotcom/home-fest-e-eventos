@@ -26,91 +26,68 @@ const ConfraternizacaoCorporativaPage: React.FC = () => {
 
       <main className="flex-1 pt-24 md:pt-28 lg:pt-32">
         {/* HERO CONFRATERNIZAÇÃO CORPORATIVA */}
-        <section className="relative w-full min-h-[480px] md:min-h-[520px] lg:min-h-[560px] overflow-hidden">
+        
+        <section id="topo" className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <img
-              src="/confraternizacao-corporativa-bh.jpg"
-              alt="Confraternização corporativa com convidados conversando em ambiente elegante"
-              className="w-full h-full object-cover"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,0,0,0.35)_0,_rgba(0,0,0,0.8)_55%,_rgba(0,0,0,0.9)_100%)]" />
+            <picture>
+              <source srcSet="/hero/confraternizacao-corporativa-bh-home-fest-eventos.webp" type="image/webp" />
+              <img
+                src="/hero/confraternizacao-corporativa-bh-home-fest-eventos.jpg"
+                alt="Confraternização corporativa em BH – Home Fest & Eventos"
+                className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
           </div>
 
-          <div className="relative max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-20 lg:py-24">
-            <div className="grid lg:grid-cols-[1.4fr_minmax(0,1fr)] gap-10 items-center">
-              <div className="space-y-5 md:space-y-6 text-white">
-                <p className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.22em] uppercase text-[#FBD9A2]">
-                  <Briefcase className="w-4 h-4" />
-                  <span>Buffet para confraternização corporativa em Belo Horizonte</span>
+          <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex-1">
+              <div className="space-y-5 text-white bg-black/55 backdrop-blur-[2px] rounded-3xl px-5 py-6 md:px-7 md:py-7 shadow-[0_18px_45px_rgba(0,0,0,.55)]">
+                <p className="inline-flex items-center text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
+                  Confraternização Corporativa em Belo Horizonte
                 </p>
-
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)]">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
                   Confraternizações corporativas com clima acolhedor, buffet completo e equipe presente no seu espaço.
                 </h1>
-
-                <p className="text-sm md:text-lg text-[#FFEBD1] max-w-xl">
-                  A Home Fest &amp; Eventos leva estrutura de buffet, cardápio autoral e serviço de equipe para eventos
-                  corporativos em empresas, casas, salões de prédio e espaços de eventos em Belo Horizonte e região.
+                <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                  Organizamos eventos corporativos em empresas, casas, salões de prédio e espaços de eventos em BH e região, com estrutura completa e equipe presente do início ao fim.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-3 pt-1.5">
+                <div className="flex flex-col sm:flex-row gap-3 pt-3">
                   <a
                     href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-sm md:text-base"
-                    aria-label="Solicitar orçamento para confraternização corporativa com a Home Fest & Eventos"
+                    className="inline-flex items-center justify-center rounded-full bg-[#D9A441] text-black font-semibold px-6 py-3 text-sm md:text-base shadow hover:brightness-95 transition"
                   >
-                    <UtensilsCrossed className="w-4 h-4" />
-                    <span>Solicitar orçamento corporativo</span>
+                    Solicitar orçamento
                   </a>
-
                   <a
                     href="#formatos"
-                    className="hf-btn hf-btn--hero hf-btn-hero-secondary inline-flex items-center justify-center gap-2 text-sm md:text-base"
+                    className="inline-flex items-center justify-center rounded-full border border-white/70 text-white font-semibold px-6 py-3 text-sm md:text-base hover:bg-white/10 transition"
                   >
-                    <Star className="w-4 h-4" />
-                    <span>Ver formatos de eventos corporativos</span>
+                    Ver formatos
                   </a>
                 </div>
-
-                <p className="text-xs md:text-sm text-[#FFE0BB] max-w-xs">
-                  Atendemos confraternizações de fim de ano, aniversários de empresa, eventos internos e encontros de equipes.
-                </p>
               </div>
+            </div>
 
-              <div className="hidden lg:flex flex-col gap-4 bg-white/95 rounded-3xl shadow-[0_24px_65px_rgba(31,22,13,.45)] p-6 border border-white/60">
-                <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-[#B47A3F]">
-                  PENSADO PARA EMPRESAS
+            {/* CARD LATERAL */}
+            <div className="w-full lg:w-[420px]">
+              <div className="bg-white/95 rounded-3xl p-6 md:p-7 shadow-xl text-[#3B2412]">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#B47A3F] mb-3">
+                  O que cuidamos por você
                 </p>
-                <ul className="space-y-3 text-sm text-[#4B2E1A]">
-                  <li className="flex gap-2">
-                    <Users className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Buffet estruturado para receber equipes de diferentes tamanhos.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <UtensilsCrossed className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Cardápios adaptáveis para coquetel, almoço, jantar ou eventos híbridos.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CupSoda className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Serviço contínuo de bebidas não alcoólicas durante o evento.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Clock3 className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Roteiro alinhado com discurso, premiações e momentos da empresa.</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <MapPin className="w-4 h-4 mt-1 text-[#B47A3F]" />
-                    <span>Atendimento em empresas, espaços de eventos, casas e sítios da região.</span>
-                  </li>
+                <ul className="space-y-3 text-sm md:text-base text-[#6A4628]">
+                  <li className="flex gap-2"><span>•</span><span>Estrutura completa no seu espaço com equipe especializada.</span></li>
+                  <li className="flex gap-2"><span>•</span><span>Cardápios autorais flexíveis para o seu estilo de celebração.</span></li>
+                  <li className="flex gap-2"><span>•</span><span>Bebidas, louças, utensílios e logística inclusos.</span></li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
+    
 
         {/* FORMATOS DE EVENTOS CORPORATIVOS */}
         <section id="formatos" className="bg-[#FFF7EC] py-16 md:py-20">

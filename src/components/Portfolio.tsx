@@ -23,10 +23,10 @@ const data: Item[] = [
     desc: "Celebrações intimistas ou animadas com cardápios flexíveis."
   },
   {
-    id: "almoco-jantar",
-    title: "Almoço e Jantar",
-    img: "/portfolio-almoco-jantar.jpg",
-    desc: "Encontros em família, datas especiais e eventos sociais."
+    id: "confraternizacao-corporativa",
+    title: "Confraternização Corporativa",
+    img: "/portfolio-empresas.jpg",
+    desc: "Confraternizações corporativas com clima acolhedor, buffet completo e equipe presente no seu espaço."
   },
   {
     id: "casamento",
@@ -40,12 +40,6 @@ const data: Item[] = [
     img: "/portfolio-boteco.jpg",
     desc: "Petiscos com apresentação sofisticada e tradição brasileira."
   },
-  {
-    id: "empresas",
-    title: "Corporativo",
-    img: "/portfolio-empresas.jpg",
-    desc: "Soluções gastronômicas para eventos corporativos com pontualidade e requinte."
-  }
 ];
 
 export default function Portfolio() {
