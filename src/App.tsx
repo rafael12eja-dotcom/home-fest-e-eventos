@@ -107,6 +107,69 @@ const App: React.FC = () => {
       document.head.appendChild(meta);
     }
 
+    // Canonical
+    const canonicalUrl = `https://homefesteeventos.com.br${pathname}`;
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = canonicalUrl;
+
+    // Open Graph + Twitter
+    const upsertMeta = (attr: "name" | "property", key: string, value: string) => {
+      let m = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
+      if (!m) {
+        m = document.createElement("meta");
+        m.setAttribute(attr, key);
+        document.head.appendChild(m);
+      }
+      m.content = value;
+    };
+
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonicalUrl);
+    upsertMeta("property", "og:type", pathname.startsWith("/blog/") ? "article" : "website");
+    upsertMeta("property", "og:site_name", "Home Fest & Eventos");
+    upsertMeta("property", "og:locale", "pt_BR");
+    upsertMeta("property", "og:image", "https://homefesteeventos.com.br/og-cover.webp");
+
+    upsertMeta("name", "twitter:card", "summary_large_image");
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+    upsertMeta("name", "twitter:image", "https://homefesteeventos.com.br/og-cover.webp");
+
+    // LocalBusiness JSON-LD (site-wide)
+    const lbId = "localbusiness-ld-json";
+    if (!document.getElementById(lbId)) {
+      const lbScript = document.createElement("script");
+      lbScript.id = lbId;
+      lbScript.type = "application/ld+json";
+      lbScript.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Home Fest & Eventos",
+        "url": "https://homefesteeventos.com.br/",
+        "logo": "https://homefesteeventos.com.br/logo.png",
+        "image": "https://homefesteeventos.com.br/og-cover.webp",
+        "telephone": "+55 31 99918-6245",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "areaServed": "Belo Horizonte - MG",
+        "priceRange": "$$",
+        "sameAs": [
+          "https://www.instagram.com/homefesteeventos"
+        ]
+      });
+      document.head.appendChild(lbScript);
+    }
+
 
 // Canonical e metatags sociais dinâmicas por rota
 const baseUrl = "https://homefesteeventos.com.br";
@@ -132,7 +195,6 @@ if (isBuffetInfantil) {
   canonicalPath = "/blog";
 }
 
-const canonicalUrl = `${baseUrl}${canonicalPath}`;
 
 const canonicalLink = document.querySelector(
   'link[rel="canonical"]'
