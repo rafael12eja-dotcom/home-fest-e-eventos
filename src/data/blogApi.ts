@@ -1,141 +1,111 @@
-// src/data/blogApi.ts
-// Blog híbrido: seed local (Markdown) + API opcional Railway (fallback seguro)
-
-export type BlogFAQ = { q: string; a: string };
-
-export type BlogPost = {
+export type BlogPostSummary = {
   slug: string;
   title: string;
-  description: string;
+  excerpt: string;
   date: string;
-  keywords: string[];
-  cover: string;
   readingTime: string;
-  category: string;
-  faq: BlogFAQ[];
-  content: string;
+  tags: string[];
+  coverImage: string;
 };
 
-const API_URL = (import.meta.env.VITE_BLOG_API_URL as string | undefined)?.replace(/\/+$/, "");
+export type BlogPost = BlogPostSummary & {
+  content: string;
+  coverAlt?: string;
+};
 
-// --- Front-matter parser (YAML simples) ---
-function parseFrontMatter(raw: string) {
-  const fmMatch = raw.match(/^---\s*([\s\S]*?)\s*---\s*/);
-  if (!fmMatch) return { data: {}, content: raw };
+const API_URL = (import.meta.env.VITE_BLOG_API_URL || "").replace(/\/+$/, "");
+const API_KEY = import.meta.env.VITE_BLOG_API_KEY || "";
 
-  const fm = fmMatch[1];
-  const content = raw.slice(fmMatch[0].length);
-  const data: any = {};
-  let currentKey: string | null = null;
+/**
+ * Busca todos os posts do blog na API oficial do Railway.
+ * Retorna sempre um array (vazio em caso de erro controlado).
+ */
+export async function getAllPosts(): Promise<BlogPostSummary[]> {
+  if (!API_URL) {
+    console.warn("[blogApi] VITE_BLOG_API_URL não configurada");
+    return [];
+  }
 
-  fm.split("\n").forEach((line) => {
-    // lista YAML simples com "- item"
-    if (/^\s*-\s+/.test(line) && currentKey) {
-      data[currentKey] = data[currentKey] || [];
-      data[currentKey].push(
-        line.replace(/^\s*-\s+/, "").replace(/^["']|["']$/g, "")
-      );
-      return;
-    }
-
-    const idx = line.indexOf(":");
-    if (idx === -1) return;
-
-    const key = line.slice(0, idx).trim();
-    const value = line.slice(idx + 1).trim();
-    if (!key) return;
-
-    currentKey = key;
-
-    // arrays estilo JSON
-    if (value.startsWith("[") && value.endsWith("]")) {
-      try {
-        data[key] = JSON.parse(value);
-        return;
-      } catch {}
-    }
-
-    data[key] = value.replace(/^["']|["']$/g, "");
-  });
-
-  return { data, content };
-}
-
-// --- Seed local (Vite 5 compat) ---
-const localModules = import.meta.glob("./posts/*.md", {
-  query: "?raw",
-  import: "default",
-  eager: true,
-}) as Record<string, string>;
-
-function loadLocalPosts(): BlogPost[] {
-  return Object.entries(localModules).map(([path, raw]) => {
-    const normalized = typeof raw === "string" ? raw : String(raw);
-    const { data, content } = parseFrontMatter(normalized);
-
-    const fileSlug =
-      path.split("/").pop()?.replace(/^\d+-/, "").replace(/\.md$/, "") || "";
-
-    return {
-      slug: data.slug || fileSlug,
-      title: data.title || "",
-      description: data.description || data.excerpt || "",
-      date: data.date || "",
-      keywords: data.keywords || data.tags || [],
-      cover:
-        data.cover ||
-        data.coverImage ||
-        "/blog/festa-em-casa-bh-guia-completo.jpg",
-      readingTime: data.readingTime || "6 min",
-      category: data.category || "Festa em Casa",
-      faq: data.faq || [],
-      content: content.trim(),
-    };
-  });
-}
-
-// --- API Railway (opcional) ---
-async function fetchApiPosts(): Promise<BlogPost[] | null> {
-  if (!API_URL) return null;
   try {
     const res = await fetch(`${API_URL}/posts`, {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-api-key": API_KEY,
+      },
     });
-    if (!res.ok) return null;
 
-    const json = await res.json();
+    if (!res.ok) {
+      console.error(
+        `[blogApi] Erro ao buscar posts do blog: ${res.status} ${res.statusText}`
+      );
+      return [];
+    }
 
-    // Normaliza formatos possíveis da API:
-    if (Array.isArray(json)) return json as BlogPost[];
-    if (json && Array.isArray(json.posts)) return json.posts as BlogPost[];
-
-    return null;
-  } catch {
-    return null;
+    const data = (await res.json()) as BlogPostSummary[];
+    return Array.isArray(data) ? data : [];
+  } catch (error) {
+    console.error("[blogApi] Erro de rede ao buscar posts do blog:", error);
+    return [];
   }
 }
 
-async function fetchApiPostBySlug(slug: string): Promise<BlogPost | null> {
-  if (!API_URL) return null;
+/**
+ * Busca um post específico pelo slug.
+ * Retorna null em caso de 404.
+ */
+export async function getPostBySlug(
+  slug: string
+): Promise<BlogPost | null> {
+  if (!API_URL) {
+    console.warn("[blogApi] VITE_BLOG_API_URL não configurada");
+    return null;
+  }
+
+  if (!slug) {
+    console.warn("[blogApi] slug vazio ao buscar post");
+    return null;
+  }
+
   try {
-    const res = await fetch(`${API_URL}/posts/${slug}`);
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
+    const res = await fetch(`${API_URL}/posts/${encodeURIComponent(slug)}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "x-api-key": API_KEY,
+      },
+    });
+
+    if (res.status === 404) {
+      return null;
+    }
+
+    if (!res.ok) {
+      console.error(
+        `[blogApi] Erro ao buscar post do blog: ${res.status} ${res.statusText}`
+      );
+      return null;
+    }
+
+    const data = (await res.json()) as BlogPost;
+    return data;
+  } catch (error) {
+    console.error("[blogApi] Erro de rede ao buscar post do blog:", error);
     return null;
   }
 }
 
-// --- Export esperado pelos componentes ---
-export async function getBlogPosts(): Promise<BlogPost[]> {
-  const api = await fetchApiPosts();
-  if (api && api.length) return api;
-  return loadLocalPosts();
+/**
+ * Mantém compatibilidade com a API anterior usada nas páginas.
+ * Pode ser usada normalmente em BlogListPage.
+ */
+export async function fetchBlogPosts(): Promise<BlogPostSummary[]> {
+  return getAllPosts();
 }
 
-export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
-  const api = await fetchApiPostBySlug(slug);
-  if (api) return api;
-  const local = loadLocalPosts().find((p) => p.slug === slug);
-  return local || null;
+/**
+ * Mantém compatibilidade com a API anterior usada em BlogPostPage.
+ */
+export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
+  return getPostBySlug(slug);
 }

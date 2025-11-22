@@ -105,7 +105,7 @@ const Header: React.FC = () => {
   return (
     <header className={headerClasses}>
       <div className="max-w-7xl mx-auto px-5 md:px-8">
-        <div className="h-20 md:h-24 lg:h-28 flex items-center justify-between gap-4 relative">
+        <div className="h-32 py-5 md:h-32 md:py-5 lg:h-28 lg:py-1 flex items-center justify-between gap-4 relative">
           {/* LOGO */}
           <a
             href="/"
@@ -113,15 +113,14 @@ const Header: React.FC = () => {
               e.preventDefault();
               goHome();
             }}
-            className="flex-shrink-0 inline-flex items-center justify-center cursor-pointer focus:outline-none rounded-xl focus-visible:ring-2 focus-visible:ring-hf-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent transition-transform duration-300 hover:scale-105 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
-            aria-label="Voltar para a página inicial Home Fest & Eventos"
+            className="inline-flex items-center gap-3 px-2 py-1.5 rounded-lg transition-transform duration-300 hover:scale-[1.02] focus:outline-none absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0 lg:flex-shrink-0" aria-label="Voltar para a página inicial Home Fest & Eventos"
           >
             <picture>
               <source srcSet="/logo.webp" type="image/webp" />
               <img
                 src="/logo.png"
                 alt="Home Fest & Eventos - Buffet e Home Fest para festas em casa"
-                className="h-28 sm:h-28 md:h-20 lg:h-24 xl:h-28 2xl:h-32 w-auto drop-shadow-[0_8px_24px_rgba(217,164,65,.35)]"
+                className="h-28 md:h-28 lg:h-20 xl:h-24 2xl:h-28 w-auto drop-shadow-[0_8px_24px_rgba(217,164,65,.35)]"
                 width={260}
                 height={140}
                 loading="eager"

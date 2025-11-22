@@ -19,7 +19,7 @@ export default function Hero() {
           <source srcSet="/hero.webp" type="image/webp" />
           <img
             src="/hero.jpg"
-            alt="Buffet para festas em casa com a Home Fest - Home Fest & Eventos"
+            alt="Buffet para festas em casa - Home Fest & Eventos"
             className="w-full h-full object-cover"
             width="1920"
             height="1080"
@@ -39,17 +39,17 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 bg-hf-gold/20 backdrop-blur-md border-2 border-hf-gold/40 rounded-full px-5 py-2.5 mb-6 w-fit">
             <Sparkles className="w-5 h-5 text-hf-gold-light" />
             <span className="text-sm font-semibold text-white tracking-wide">
-              Buffet em Domicílio em Belo Horizonte
+              Experiências Gastronômicas Exclusivas
             </span>
           </div>
 
           {/* Headline principal */}
           <h1 className="font-serif text-white drop-shadow-2xl leading-[1.1] max-w-5xl">
             <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 bg-gradient-to-r from-white via-hf-cream to-white bg-clip-text text-transparent animate-fadeIn">
-              Buffet em Domicílio BH
+              Buffet e Home Fest
             </span>
             <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-hf-cream/95 animate-fadeIn animation-delay-200">
-              para festas em casa com a Home Fest
+              para festas em casa
             </span>
           </h1>
 

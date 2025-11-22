@@ -49,10 +49,13 @@ const FestaEscolarPage: React.FC = () => {
                     Festa escolar em Belo Horizonte
                   </p>
 
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">Festa Escolar em BH com Buffet Completo</h1>
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
+                    Festa escolar rápida, organizada e acolhedora para a sua turma.
+                  </h1>
 
                   <p className="text-sm md:text-lg text-[#FFF3D9] max-w-xl">
-                    Buffet para festa escolar em Belo Horizonte com montagem rápida, cardápio infantil equilibrado e equipe treinada para atender escolas e turmas com agilidade, sem interromper a rotina pedagógica.
+                    Ideal para comemorações de aniversário na escola, com tempo enxuto,
+                    cardápio pensado para as crianças e serviço que não atrapalha a rotina da sala.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">

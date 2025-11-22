@@ -34,9 +34,12 @@ const ChurrascoPage: React.FC = () => {
                 <p className="inline-flex items-center text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
                   Churrasco em Belo Horizonte
                 </p>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">Churrasco em Domicílio em BH</h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
+                  Churrasco completo no seu espaço, com equipe, cortes selecionados e serviço de buffet.
+                </h1>
                 <p className="text-sm md:text-lg text-[#FFF3D9] max-w-xl">
-                  Churrasco em domicílio em Belo Horizonte com churrasqueiro, carnes selecionadas, acompanhamentos completos e equipe de serviço. Perfeito para aniversários, eventos corporativos e reuniões em casa, sem bagunça e sem estresse.
+                  Ideal para aniversários, confraternizações e encontros em família, com toda a estrutura de churrasco
+                  em domicílio sem que você precise se preocupar com preparo, serviço ou limpeza.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -47,7 +50,7 @@ const ChurrascoPage: React.FC = () => {
                     className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
                   >
                     <Flame className="w-4 h-4" />
-                    <span>Orçamento Churrasco em Domicílio</span>
+                    <span>Orçamento churrasco</span>
                   </a>
                   <a
                     href="#detalhes"

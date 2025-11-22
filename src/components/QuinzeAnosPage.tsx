@@ -46,10 +46,13 @@ const QuinzeAnosPage: React.FC = () => {
                   Festa de 15 anos em Belo Horizonte
                 </p>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)] text-white">Festa de 15 Anos em BH com Buffet em Domicílio</h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.55)] text-white">
+                  Uma festa de 15 anos completa, sofisticada e acolhedora, com clima de casa e estrutura de buffet.
+                </h1>
 
                 <p className="text-sm md:text-lg text-[#FFEBD1] max-w-xl">
-                  Festa de 15 anos em domicílio em Belo Horizonte com coquetel de recepção, estações gourmet, jantar completo, doces finos e equipe de serviço. Um evento elegante, no seu espaço, com planejamento e execução sem preocupações.
+                  Da recepção ao jantar, a Home Fest & Eventos cuida de tudo: coquetel, estações gourmet, jantar Home Fest,
+                  doces finos e serviço completo, para que você e sua família possam viver cada momento com tranquilidade.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-1.5">

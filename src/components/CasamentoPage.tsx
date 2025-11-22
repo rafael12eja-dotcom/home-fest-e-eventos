@@ -48,9 +48,11 @@ const CasamentoPage: React.FC = () => {
                 <p className="inline-flex items-center text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
                   Casamento em Belo Horizonte
                 </p>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">Casamento Intimista em BH com Buffet em Domicílio</h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
+                  Buffet para Casamento em BH com experiência completa no seu espaço.
+                </h1>
                 <p className="text-sm md:text-base text-white/90 leading-relaxed">
-                  Mini wedding e casamento intimista em domicílio em Belo Horizonte, com buffet premium, equipe completa, montagem acolhedora e atendimento elegante — tudo no conforto da sua casa ou espaço escolhido.
+                  Casamento com clima de casa, gastronomia autoral e serviço completo no seu espaço.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-3">

@@ -51,7 +51,9 @@ const AniversarioAdultoPage: React.FC = () => {
                 Buffet para aniversário adulto em BH
               </div>
 
-              <h1 className="mt-6 text-white text-4xl md:text-6xl font-semibold leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.65)]">Aniversário Adulto em Casa com Buffet em BH</h1>
+              <h1 className="mt-6 text-white text-4xl md:text-6xl font-semibold leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.65)]">
+                Uma festa adulta com serviço profissional e aconchego de casa.
+              </h1>
 
               <p className="mt-5 text-white/90 text-base md:text-lg max-w-2xl leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]">
                 Jantares intimistas, festas animadas, encontros ao ar livre ou celebrações em família — a Home Fest adapta cardápios, equipe e montagem ao seu estilo.
