@@ -59,6 +59,15 @@ const BlogPostPage: React.FC = () => {
         "@type": "WebPage",
         "@id": `https://homefesteeventos.com.br/blog/${post.slug}`,
       },
+      url: `https://homefesteeventos.com.br/blog/${post.slug}`,
+      wordCount: post.content?.split(" ").length,
+      inLanguage: "pt-BR",
+      articleSection: post.category || "Buffet em domicílio",
+      keywords: post.keywords || [
+        "buffet em domicílio BH",
+        "festa em casa BH",
+        "Home Fest BH",
+      ],
     };
 
     const faq =

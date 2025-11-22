@@ -45,13 +45,10 @@ const AlmocoJantarPage: React.FC = () => {
                   Buffet Almoço e Jantar em Belo Horizonte
                 </p>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
-                  Buffet Almoço e Jantar completo, com acolhimento sofisticado no seu espaço.
-                </h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">Almoço e Jantar em Domicílio BH</h1>
 
                 <p className="text-sm md:text-lg text-[#FFF3D9] max-w-xl">
-                  Uma combinação perfeita entre coquetel reforçado e cardápios completos Home Fest,
-                  pensados para eventos em casa, empresas, salões de prédios, sítios e espaços de festa.
+                  Buffet de almoço e jantar em domicílio em Belo Horizonte com menu premium, serviço completo e equipe organizada no seu espaço. Ideal para aniversários, reuniões de família, confraternizações corporativas e celebrações intimistas.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3">

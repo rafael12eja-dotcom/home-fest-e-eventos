@@ -89,9 +89,7 @@ const BlogListPage: React.FC = () => {
       <Header />
       <main className="pt-28 max-w-6xl mx-auto px-4 pb-16">
         <header className="mb-10">
-          <h1 className="text-3xl md:text-4xl font-serif font-semibold text-hf-brown mb-3">
-            Blog Home Fest BH
-          </h1>
+          <h1 className="text-3xl md:text-4xl font-serif font-semibold text-hf-brown mb-3">Blog Home Fest & Eventos BH: Festas em Casa e Buffet em Domicílio</h1>
           <p className="text-base md:text-lg text-[#5A3E2B] max-w-3xl leading-relaxed">
             Inspirações e guias completos sobre festa em casa, buffet em domicílio,
             churrasco, brunch, aniversários e casamentos intimistas em Belo Horizonte.

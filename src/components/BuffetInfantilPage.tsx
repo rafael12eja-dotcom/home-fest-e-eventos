@@ -46,13 +46,10 @@ const BuffetInfantilPage: React.FC = () => {
 	                  Buffet infantil em Belo Horizonte
 	                </p>
 	
-		                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-lg text-white">
-	                  Festa infantil completa, no seu espaço, com clima de casa e estrutura de buffet.
-	                </h1>
+		                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-lg text-white">Buffet Infantil em Casa em BH</h1>
 	
 	                <p className="text-sm md:text-lg text-hf-cream max-w-xl">
-	                  Ideal para quem quer comemorar em casa, no prédio ou no salão do condomínio, com cardápio infantil,
-	                  equipe organizada e aquela atmosfera alegre que as crianças amam.
+	                  Festa infantil em casa em Belo Horizonte com buffet completo, monitores presentes, brincadeiras seguras e cardápio pensado para crianças e adultos. Você curte o aniversário; a Home Fest cuida do resto.
 	                </p>
 	
 	                <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -63,7 +60,7 @@ const BuffetInfantilPage: React.FC = () => {
 	                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
 	                  >
 	                    <Baby className="w-4 h-4" />
-	                    <span>Orçamento infantil</span>
+	                    <span>Orçamento Buffet Infantil</span>
 	                  </a>
 	
 	                  {/* Botão outline com contraste corrigido */}
@@ -86,7 +83,7 @@ const BuffetInfantilPage: React.FC = () => {
           <div className="max-w-5xl mx-auto px-6 md:px-8">
             <div className="mb-10 text-center md:text-left">
               <p className="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-[#B47A3F]">
-                Para quem é a festa infantil Home Fest?
+                Para quem é o Buffet Infantil em Casa BH?
               </p>
               <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
                 Para famílias que querem comemorar em casa, com organização de buffet.

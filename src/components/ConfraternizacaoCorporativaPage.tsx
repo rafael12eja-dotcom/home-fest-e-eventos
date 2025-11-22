@@ -48,9 +48,7 @@ const ConfraternizacaoCorporativaPage: React.FC = () => {
                 <p className="inline-flex items-center text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
                   Confraternização Corporativa em Belo Horizonte
                 </p>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
-                  Confraternizações corporativas com clima acolhedor, buffet completo e equipe presente no seu espaço.
-                </h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">Confraternização Corporativa em Domicílio BH</h1>
                 <p className="text-sm md:text-base text-white/90 leading-relaxed">
                   Organizamos eventos corporativos em empresas, casas, salões de prédio e espaços de eventos em BH e região, com estrutura completa e equipe presente do início ao fim.
                 </p>
