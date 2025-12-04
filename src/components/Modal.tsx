@@ -1,51 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import { X, Phone, MessageSquare } from "lucide-react";
 import { useModal } from "../hooks/useModal";
-import { CARDAPIO_COQUETEL_BASE, CARDAPIO_COQUETEL_ATUALIZADO, CARDAPIO_BRUNCH, CARDAPIO_ALMOCO_JANTAR, CARDAPIO_BOTECO, CARDAPIO_ESCOLAR, CARDAPIO_CHURRASCO, Section } from "../data/eventTypes";
+import { MENU_DATA, Menu } from "../data/menuData";
 
 // Mapeamento de IDs para os cardápios
-const CARDAPIOS: { [key: string]: { title: string, sections: Section[] } } = {
-  infantil: {
-    title: "Cardápio Buffet Infantil",
-    sections: CARDAPIO_COQUETEL_ATUALIZADO,
-  },
-  "15anos": {
-    title: "Cardápio 15 Anos",
-    sections: CARDAPIO_COQUETEL_ATUALIZADO,
-  },
-  casamento: {
-    title: "Cardápio Casamento",
-    sections: CARDAPIO_COQUETEL_ATUALIZADO,
-  },
-  churrasco: {
-    title: "Cardápio Churrasco",
-    sections: CARDAPIO_CHURRASCO,
-  },
-  boteco: {
-    title: "Cardápio Comida de Boteco",
-    sections: CARDAPIO_BOTECO,
-  },
-  empresas: {
-    title: "Cardápio Corporativo",
-    sections: CARDAPIO_COQUETEL_BASE,
-  },
-  escolar: {
-    title: "Cardápio Festa Escolar",
-    sections: CARDAPIO_ESCOLAR,
-  },
-  coquetel: {
-    title: "Cardápio Coquetel (Base)",
-    sections: CARDAPIO_COQUETEL_BASE,
-  },
-  brunch: {
-    title: "Cardápio Festa Brunch",
-    sections: CARDAPIO_BRUNCH,
-  },
-  "almoco-jantar": {
-    title: "Cardápio Almoço ou Jantar Oficial",
-    sections: CARDAPIO_ALMOCO_JANTAR,
-  },
-};
+const CARDAPIOS: { [key: string]: Menu } = MENU_DATA.reduce((acc, menu) => {
+  acc[menu.id] = menu;
+  return acc;
+}, {} as { [key: string]: Menu });
 
 export default function Modal() {
   const { isOpen, cardapioId, title, closeModal } = useModal();
@@ -72,7 +34,30 @@ export default function Modal() {
   if (!isOpen || !cardapioId) return null;
 
   const cardapio = CARDAPIOS[cardapioId];
-  if (!cardapio) return null;
+  const modalTitle = cardapio?.title || title;
+  
+  // Proteção: Se o cardápio não existir, mostrar mensagem amigável
+  if (!cardapio) {
+    return (
+      <div
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-[9999]"
+        onClick={closeModal}
+      >
+        <div className="bg-white max-w-md w-full rounded-3xl shadow-2xl p-8 text-center">
+          <h2 className="font-serif text-2xl text-[#111] mb-4">Cardápio em atualização</h2>
+          <p className="text-neutral-600 mb-6">
+            O cardápio deste serviço está sendo atualizado. Entre em contato conosco para mais informações!
+          </p>
+          <button
+            onClick={closeModal}
+            className="hf-btn hf-btn--primary w-full"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -90,7 +75,7 @@ export default function Modal() {
         <div className="p-6 md:p-8 border-b border-gray-100 flex justify-between items-start sticky top-0 bg-white z-10">
           <div>
             <h2 id="modal-title" className="font-serif text-3xl md:text-4xl text-[#111] mb-1">
-              {cardapio.title}
+              {modalTitle}
             </h2>
             <p className="text-lg text-neutral-600">
               {title}

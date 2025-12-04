@@ -20,7 +20,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const AlmocoJantarPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#FFF7EC] text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-[#FFF7EC] text-white flex flex-col">
       <Header />
 
       <main className="flex-1 pt-28">
@@ -45,12 +45,12 @@ const AlmocoJantarPage: React.FC = () => {
                   Buffet Almoço e Jantar em Belo Horizonte
                 </p>
 
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)]">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
                   Buffet Almoço e Jantar completo, com acolhimento sofisticado no seu espaço.
                 </h1>
 
                 <p className="text-sm md:text-lg text-[#FFF3D9] max-w-xl">
-                  Uma combinação perfeita entre coquetel reforçado e cardápios completos Essenzia/Home Fest,
+                  Uma combinação perfeita entre coquetel reforçado e cardápios completos Home Fest,
                   pensados para eventos em casa, empresas, salões de prédios, sítios e espaços de festa.
                 </p>
 
@@ -59,7 +59,7 @@ const AlmocoJantarPage: React.FC = () => {
                     href={whatsappLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hf-btn hf-btn--primary hf-btn--hero inline-flex items-center justify-center gap-2 text-base"
+                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
                     aria-label="Solicitar orçamento de Buffet Almoço e Jantar pelo WhatsApp"
                   >
                     <UtensilsCrossed className="w-4 h-4" />
@@ -68,7 +68,7 @@ const AlmocoJantarPage: React.FC = () => {
 
                   <a
                     href="#coquetel"
-                    className="hf-btn hf-btn--outline hf-btn--hero inline-flex items-center justify-center gap-2 text-base border-white/70 text-white hover:bg-white/10"
+                    className="hf-btn hf-btn--hero hf-btn-hero-secondary inline-flex items-center justify-center gap-2 text-base"
                   >
                     <span>Ver como funciona o cardápio</span>
                   </a>
@@ -96,7 +96,7 @@ const AlmocoJantarPage: React.FC = () => {
               <p className="text-sm md:text-base text-[#6A4628] max-w-3xl">
                 Utilizamos uma base de coquetel com{" "}
                 <span className="font-semibold">12 tipos de salgados</span>,{" "}
-                <span className="font-semibold">15 tipos de doces</span> e{" "}
+                <span className="font-semibold">28 tipos de doces, com escolha de 7 sabores + 1 tipo de bombom</span> e{" "}
                 <span className="font-semibold">bebidas servidas à vontade</span>, ideal para
                 casamentos intimistas, aniversários adultos, almoços/jantares em família e eventos corporativos.
               </p>
@@ -171,7 +171,7 @@ const AlmocoJantarPage: React.FC = () => {
                 Cardápios de almoço e jantar
               </p>
               <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
-                Quatro sugestões de cardápio Essenzia/Home Fest para compor seu evento.
+                Quatro sugestões de cardápio Home Fest para compor seu evento.
               </h2>
               <p className="text-sm md:text-base text-[#6A4628] max-w-3xl">
                 A partir do coquetel reforçado, você escolhe um dos cardápios completos abaixo para estruturar o almoço

@@ -38,42 +38,44 @@ const BuffetInfantilPage: React.FC = () => {
           </div>
 
           <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-            <div className="flex-1">
-              <div className="space-y-5 text-white bg-black/55 backdrop-blur-md rounded-3xl px-5 py-6 md:px-7 md:py-7 shadow-[0_18px_45px_rgba(0,0,0,.55)]">
-                <p className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.18em] uppercase">
-                  <PartyPopper className="w-4 h-4" />
-                  Buffet infantil em Belo Horizonte
-                </p>
-
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)]">
-                  Festa infantil completa, no seu espaço, com clima de casa e estrutura de buffet.
-                </h1>
-
-                <p className="text-sm md:text-lg text-[#FFF3D9] max-w-xl">
-                  Ideal para quem quer comemorar em casa, no prédio ou no salão do condomínio, com cardápio infantil,
-                  equipe organizada e aquela atmosfera alegre que as crianças amam.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hf-btn hf-btn--primary hf-btn--hero inline-flex items-center justify-center gap-2 text-base"
-                  >
-                    <Baby className="w-4 h-4" />
-                    <span>Orçamento infantil</span>
-                  </a>
-
-                  <a
-                    href="#detalhes"
-                    className="hf-btn hf-btn--outline hf-btn--hero inline-flex items-center justify-center gap-2 text-base border-white/70 text-white hover:bg-white/10"
-                  >
-                    <span>Ver tudo o que está incluso</span>
-                  </a>
-                </div>
-              </div>
-            </div>
+	            <div className="flex-1">
+	              {/* Ajuste de contraste e legibilidade */}
+	              <div className="space-y-5 text-white bg-hf-brown/70 backdrop-blur-sm rounded-3xl px-5 py-6 md:px-7 md:py-7 shadow-[0_18px_45px_rgba(0,0,0,.55)] border-2 border-hf-gold/30">
+	                <p className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-hf-gold-light">
+	                  <PartyPopper className="w-4 h-4" />
+	                  Buffet infantil em Belo Horizonte
+	                </p>
+	
+		                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-lg text-white">
+	                  Festa infantil completa, no seu espaço, com clima de casa e estrutura de buffet.
+	                </h1>
+	
+	                <p className="text-sm md:text-lg text-hf-cream max-w-xl">
+	                  Ideal para quem quer comemorar em casa, no prédio ou no salão do condomínio, com cardápio infantil,
+	                  equipe organizada e aquela atmosfera alegre que as crianças amam.
+	                </p>
+	
+	                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+	                  <a
+	                    href={whatsappLink}
+	                    target="_blank"
+	                    rel="noopener noreferrer"
+	                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
+	                  >
+	                    <Baby className="w-4 h-4" />
+	                    <span>Orçamento infantil</span>
+	                  </a>
+	
+	                  {/* Botão outline com contraste corrigido */}
+	                  <a
+	                    href="#detalhes"
+	                    className="hf-btn hf-btn--outline hf-btn--hero inline-flex items-center justify-center gap-2 text-base bg-white/10 border-white/70 text-white hover:bg-white/20 hover:border-white"
+	                  >
+	                    <span>Ver tudo o que está incluso</span>
+	                  </a>
+	                </div>
+	              </div>
+	            </div>
 
             <div className="hidden lg:block flex-1" aria-hidden="true" />
           </div>
@@ -281,7 +283,7 @@ const BuffetInfantilPage: React.FC = () => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hf-btn hf-btn--primary hf-btn--hero inline-flex items-center justify-center gap-2 text-base"
+                className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
               >
                 <Baby className="w-4 h-4" />
                 <span>Solicitar orçamento infantil</span>

@@ -20,7 +20,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const FestaEscolarPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#FFF7EC] text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-[#FFF7EC] text-white flex flex-col">
       <Header />
 
       <main className="flex-1">
@@ -49,7 +49,7 @@ const FestaEscolarPage: React.FC = () => {
                     Festa escolar em Belo Horizonte
                   </p>
 
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)]">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-[0_6px_18px_rgba(0,0,0,.5)] text-white">
                     Festa escolar rápida, organizada e acolhedora para a sua turma.
                   </h1>
 

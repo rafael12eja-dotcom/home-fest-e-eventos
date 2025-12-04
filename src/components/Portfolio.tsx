@@ -1,8 +1,6 @@
 import React from "react";
-import { useModal } from "../hooks/useModal"; // Hook para abrir o modal (será criado na fase 4)
-// Importa os detalhes completos de cada tipo de evento. Esse dataset
-// contém introdução e seções com listas de itens que serão exibidos no modal
-import { EVENT_TYPES } from "../data/eventTypes";
+import { useModal } from "../hooks/useModal";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 type Item = {
   id: string;
@@ -11,21 +9,24 @@ type Item = {
   desc: string;
 };
 
-// Lista de tipos de festa exibida no portfólio.  As imagens usam o prefixo
-// "portfolio-" para evitar conflito com fotos de serviços e são fornecidas
-// pelo cliente. A seção Home Fest foi removida conforme solicitado.
 const data: Item[] = [
   {
     id: "infantil",
     title: "Buffet Infantil",
-    img: "/portfolio-infantil.jpg",
-    desc: "Festa temática com cardápio lúdico e decoração inclusa."
+    img: "/infantil.jpg",
+    desc: "Festa infantil completa com buffet em casa e ambientação acolhedora."
   },
   {
-    id: "15anos",
-    title: "15 Anos",
-    img: "/portfolio-15anos.jpg",
-    desc: "Celebração inesquecível com menu elegante e ambientação especial."
+    id: "adulto",
+    title: "Aniversário Adulto",
+    img: "/portfolio-adulto.jpg",
+    desc: "Celebrações intimistas ou animadas com cardápios flexíveis."
+  },
+  {
+    id: "confraternizacao-corporativa",
+    title: "Confraternização Corporativa",
+    img: "/portfolio-empresas.jpg",
+    desc: "Confraternizações corporativas com buffet completo e equipe presente no seu espaço."
   },
   {
     id: "casamento",
@@ -34,29 +35,11 @@ const data: Item[] = [
     desc: "Cerimônia e recepção com gastronomia autoral e serviço completo."
   },
   {
-    id: "churrasco",
-    title: "Churrasco",
-    img: "/portfolio-churrasco.jpg",
-    desc: "Cortes selecionados na brasa, acompanhamentos e farofas especiais."
-  },
-  {
     id: "boteco",
     title: "Comida de Boteco",
     img: "/portfolio-boteco.jpg",
     desc: "Petiscos com apresentação sofisticada e tradição brasileira."
   },
-  {
-    id: "empresas",
-    title: "Corporativo",
-    img: "/portfolio-empresas.jpg",
-    desc: "Soluções gastronômicas para eventos corporativos com pontualidade e requinte."
-  },
-  {
-    id: "escolar",
-    title: "Festa Escolar",
-    img: "/portfolio-escolar.jpg",
-    desc: "Evento escolar organizado, econômico e com cardápio infantil equilibrado."
-  }
 ];
 
 export default function Portfolio() {
@@ -65,72 +48,78 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      aria-label="Portfólio de serviços"
-      className="bg-[#FBF6EE] px-5 md:px-8 py-6 md:py-8"
+      aria-label="Festas em Casa e Eventos Sociais"
+      className="bg-gradient-to-b from-hf-offwhite to-hf-cream px-5 md:px-8 py-16 md:py-24"
     >
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="font-serif text-4xl md:text-5xl text-[#111]">
-          Portfólio de Eventos - Buffet e Home Fest
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 bg-hf-gold/10 border-2 border-hf-gold/30 rounded-full px-5 py-2 mb-6">
+          <Sparkles className="w-4 h-4 text-hf-gold" />
+          <span className="text-sm font-semibold text-hf-gold tracking-wide">
+            Nosso Portfólio
+          </span>
+        </div>
+
+        {/* Título */}
+        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-hf-brown mb-4">
+          Festas em Casa e Eventos Sociais
         </h2>
-        <p className="text-lg text-[#404040] mt-2">
-          Experiências gastronômicas para cada tipo de celebração
+        <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Seu evento inesquecível, com a estrutura de um buffet e o conforto do seu espaço.
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto">
-        {/* Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {data.map((item) => (
+        {/* Grid de cards premium */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {data.map((item, index) => (
             <article
               key={item.id}
-              className="bg-white rounded-3xl shadow-[0_10px_30px_-10px_rgba(0,0,0,.15)] overflow-hidden ring-1 ring-black/5 flex flex-col"
+              className="hf-card group"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="aspect-[16/11] w-full overflow-hidden">
-                <picture>
-                  <source srcSet={item.img.replace('.jpg', '.webp')} type="image/webp" />
-                  <img
-                    src={item.img}
-                    alt={`${item.title} - Buffet Home Fest com cardápio personalizado para festas em casa`}
-                    className="w-full h-full md:h-auto aspect-[4/3] object-cover rounded-xl shadow-sm"
-                    width="600"
-                    height="400"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
+              {/* Imagem com overlay hover - renderiza apenas se existir imagem configurada */}
+              {item.img && (
+                <div className="relative aspect-[16/11] w-full overflow-hidden">
+                  <picture>
+                    <source srcSet={item.img.replace('.jpg', '.webp')} type="image/webp" />
+                    <img
+                      src={item.img}
+                      alt={`${item.title} em Belo Horizonte - Buffet Home Fest & Eventos`}
+                      className="hf-card__img"
+                      loading="lazy"
+                    />
+                  </picture>
+                  {/* Overlay no hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              )}
 
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-serif text-2xl text-[#111] mb-2">
+              {/* Conteúdo */}
+              <div className="hf-card__body">
+                <h3 className="hf-card__title">
                   {item.title}
                 </h3>
-                <p className="text-[#444] flex-1">{item.desc}</p>
+                <p className="hf-card__desc">
+                  {item.desc}
+                </p>
 
-                <div className="card-actions mt-6">
+                {/* Ações */}
+                <div className="mt-4">
                   <button
                     onClick={() => openModal(item.id, item.title)}
-                    className="hf-btn hf-btn--outline"
+                    className="hf-btn hf-btn--outline hf-btn--hero group/btn w-full justify-center text-sm"
                     type="button"
                   >
-                    Cardápio
+                    <span>Ver Cardápio</span>
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                   </button>
-
-                  <a
-                    href="#contato"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hf-btn hf-btn--primary"
-                   aria-label="Chamar no WhatsApp">
-                    Orçamento via WhatsApp
-                  </a>
                 </div>
               </div>
             </article>
           ))}
         </div>
       </div>
-
-      {/* O modal será renderizado globalmente pelo App.tsx */}
     </section>
   );
 }

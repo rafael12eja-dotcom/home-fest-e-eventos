@@ -145,6 +145,143 @@ const CARDAPIO_4: MenuItem = {
   ],
 };
 
+// --- NOVOS CARDÁPIOS COMPLETOS ---
+
+const CARDAPIO_ANIVERSARIO_ADULTO_COMPLETO: MenuItem[] = [
+  {
+    title: "🟫 Entradas simples e gostosas",
+    items: [
+      "Torradinhas crocantes com patê de frango",
+      "Pão de alho artesanal",
+      "Mini sanduíches variados (frango, presunto e queijo, vegetariano)",
+      "Tábua simples com queijo, presunto e azeitonas",
+    ],
+  },
+  {
+    title: "🟫 Salgados Tradicionais + Gourmet Acessíveis",
+    items: [
+      "Coxinha tradicional",
+      "Coxinha com catupiry",
+      "Bolinha de queijo",
+      "Kibe tradicional",
+      "Pastelzinho de carne",
+      "Pastelzinho de queijo",
+      "Enroladinho de salsicha",
+      "Empadinha de frango",
+      "Mini pizza",
+      "Mini quibe com catupiry",
+      "Mini bolinho de mandioca com carne de sol (opcional)",
+    ],
+  },
+  {
+    title: "🟫 Finger Foods Acessíveis (opções quentes)",
+    items: [
+      "Mini escondidinho de frango",
+      "Mini escondidinho de carne",
+      "Penne ao molho branco",
+      "Penne ao molho vermelho",
+      "Mini porção de batata com bacon",
+      "Mini arroz com frango cremoso (opcional)",
+    ],
+  },
+  {
+    title: "🟫 Doces Simples & Acessíveis",
+    items: [
+      "Brigadeiro tradicional",
+      "Brigadeiro de ninho",
+      "Beijinho",
+      "Cajuzinho",
+      "Casadinho",
+      "Mini brownie simples",
+    ],
+  },
+  {
+    title: "🟫 Bebidas",
+    items: [
+      "Refrigerantes",
+      "Sucos",
+      "Água com e sem gás",
+      "Drinks fornecidos pelo cliente (opcional), servidos pela equipe",
+    ],
+  },
+  {
+    title: "🟫 Serviço",
+    items: [
+      "Equipe completa",
+      "Montagem da mesa",
+      "Aquecimento dos itens",
+      "Praticidade e atendimento cuidadoso",
+    ],
+  },
+];
+
+const CARDAPIO_CONFRATERNIZACAO_CORPORATIVA_COMPLETO: MenuItem[] = [
+  {
+    title: "🔶 Entradas",
+    items: [
+      "Pães variados",
+      "Patês simples (alho, frango, ervas)",
+      "Tábua básica de frios (queijo + presunto + salame simples)",
+      "Mix de amendoins e castanha de caju",
+    ],
+  },
+  {
+    title: "🔶 Salgados Corporativos",
+    items: [
+      "Coxinha",
+      "Bolinha de queijo",
+      "Kibe",
+      "Pastel de carne",
+      "Pastel de queijo",
+      "Empadinha de frango",
+      "Mini quibe com catupiry",
+      "Enroladinho de salsicha",
+      "Mini pão de queijo (muito bom para eventos de empresa)",
+    ],
+  },
+  {
+    title: "🔶 Mini Porções – Corporativo Popular",
+    items: [
+      "Penne ao molho branco",
+      "Penne ao sugo",
+      "Escondidinho de frango",
+      "Escondidinho de carne",
+      "Arroz com frango cremoso",
+      "Mini nuggets empanados (para eventos informais)",
+    ],
+  },
+  {
+    title: "🔶 Doces Populares",
+    items: [
+      "Brigadeiro",
+      "Beijinho",
+      "Mini brownie",
+      "Cajuzinho",
+      "Trufa simples",
+    ],
+  },
+  {
+    title: "🔶 Bebidas",
+    items: [
+      "Refrigerantes",
+      "Água",
+      "Sucos",
+      "Café (muito comum em eventos empresariais)",
+    ],
+  },
+  {
+    title: "🔶 Serviços",
+    items: [
+      "Atendimento discreto",
+      "Reposição constante",
+      "Montagem e finalização",
+      "Evento simples, bonito e eficiente",
+    ],
+  },
+];
+
+// --- LISTA PRINCIPAL DE CARDÁPIOS ---
+
 export const MENU_DATA: Menu[] = [
   {
     id: "casamento",
@@ -181,6 +318,11 @@ export const MENU_DATA: Menu[] = [
         items: ["Este é um cardápio base de coquetel. Detalhes e personalizações são definidos em conjunto com o cliente."],
       },
     ],
+  },
+  {
+    id: "adulto",
+    title: "Cardápio Aniversário Adulto",
+    sections: CARDAPIO_ANIVERSARIO_ADULTO_COMPLETO,
   },
   {
     id: "infantil",
@@ -223,6 +365,11 @@ export const MENU_DATA: Menu[] = [
         ],
       },
     ],
+  },
+  {
+    id: "confraternizacao-corporativa",
+    title: "Cardápio Confraternização Corporativa",
+    sections: CARDAPIO_CONFRATERNIZACAO_CORPORATIVA_COMPLETO,
   },
   {
     id: "empresas",

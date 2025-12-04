@@ -26,15 +26,30 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
     setCardapioId(id);
     setTitle(modalTitle);
     setIsOpen(true);
-    document.body.style.overflow = "hidden"; // Evita scroll do body
+    // Evita scroll do body
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "hidden";
+    }
   };
 
   const closeModal = () => {
     setIsOpen(false);
     setCardapioId(null);
     setTitle(null);
-    document.body.style.overflow = "unset"; // Restaura scroll do body
+    // Restaura scroll do body
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "unset";
+    }
   };
+
+  // Garantir que o scroll seja restaurado ao desmontar o componente
+  React.useEffect(() => {
+    return () => {
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "unset";
+      }
+    };
+  }, []);
 
   return (
     <ModalContext.Provider value={{ isOpen, cardapioId, title, openModal, closeModal }}>

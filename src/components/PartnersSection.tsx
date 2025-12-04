@@ -1,5 +1,5 @@
-// src/components/PartnersSection.tsx
 import React from "react";
+import { Handshake, ExternalLink } from "lucide-react";
 
 type Partner = {
   name: string;
@@ -29,63 +29,82 @@ const PartnersSection: React.FC = () => {
   return (
     <section
       aria-labelledby="hf-parceiros-titulo"
-      className="bg-[#FFF8F0] py-16 md:py-20 border-y border-[#F1DFC5]"
+      className="bg-gradient-to-b from-hf-offwhite to-hf-cream py-16 md:py-20 border-y-2 border-hf-gold/20 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
-        {/* CABEÇALHO PREMIUM */}
-        <div className="flex flex-col items-center text-center gap-3 mb-10">
-          <p className="text-[11px] md:text-xs tracking-[0.25em] uppercase text-[#B38B3C]">
-            Parceiros selecionados
-          </p>
+      {/* Elementos decorativos */}
+      <div className="absolute top-0 left-1/3 w-72 h-72 bg-hf-gold/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 right-1/3 w-72 h-72 bg-hf-gold-dark/5 rounded-full blur-3xl -z-10" />
+
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        {/* Header */}
+        <div className="flex flex-col items-center text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-hf-gold/10 border-2 border-hf-gold/30 rounded-full px-5 py-2 mb-6">
+            <Handshake className="w-4 h-4 text-hf-gold" />
+            <span className="text-sm font-semibold text-hf-gold tracking-wide">
+              Nossos Parceiros
+            </span>
+          </div>
 
           <h2
             id="hf-parceiros-titulo"
-            className="font-serif text-2xl md:text-3xl text-[#3B2412]"
+            className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-hf-brown mb-4"
           >
             Marcas que somam ao padrão Home Fest
           </h2>
 
-          <p className="mt-2 text-sm md:text-base text-[#5D3B23] max-w-2xl">
+          <p className="text-lg md:text-xl text-neutral-600 max-w-3xl leading-relaxed">
             Selecionamos parceiros que elevam cada detalhe da sua festa.{" "}
-            <span className="font-semibold">
+            <strong className="text-hf-brown">
               Marcas de confiança que somam sabor, criatividade e qualidade
-            </span>{" "}
+            </strong>{" "}
             ao padrão Home Fest &amp; Eventos.
           </p>
         </div>
 
-        {/* GRID DE LOGOS PREMIUM */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 items-stretch justify-items-center">
-          {partners.map((partner) => (
+        {/* Grid de parceiros */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 items-stretch">
+          {partners.map((partner, index) => (
             <a
               key={partner.name}
               href={partner.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-full max-w-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FFF8F0] rounded-3xl"
+              className="group relative bg-white rounded-3xl p-8 md:p-10 border-2 border-hf-gold/15 shadow-premium hover:shadow-premium-lg hover:border-hf-gold/40 transition-all duration-500 hover:-translate-y-2 flex flex-col items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-hf-gold focus-visible:ring-offset-4"
               aria-label={`Abrir o Instagram de ${partner.name}`}
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="relative h-[200px] md:h-[220px] w-full rounded-3xl bg-gradient-to-br from-white via-[#FFF7EC] to-[#F5E3C4] border border-[#E8D8C1] shadow-[0_16px_40px_rgba(0,0,0,.08)] group-hover:shadow-[0_22px_60px_rgba(0,0,0,.12)] transition-shadow flex flex-col items-center justify-center px-4">
-                <div className="inline-flex items-center justify-center rounded-full border border-[#E4D2B8] bg-white/80 px-4 py-2 mb-3">
-                  <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-[#B47A3F]">
-                    Parceiro oficial
-                  </span>
-                </div>
+              {/* Ícone de link externo */}
+              <div className="absolute top-4 right-4 w-10 h-10 bg-hf-gold/10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <ExternalLink className="w-5 h-5 text-hf-gold" />
+              </div>
 
+              {/* Logo */}
+              <div className="relative w-full h-40 flex items-center justify-center mb-4">
                 <img
                   src={partner.logo}
                   alt={`Parceiro Home Fest & Eventos: ${partner.name}`}
-                  className="max-h-[140px] md:max-h-[160px] w-auto object-contain opacity-95 group-hover:opacity-100 transition-opacity duration-150"
+                  className="max-h-full max-w-full w-auto h-auto object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                   loading="lazy"
                   decoding="async"
                 />
-
-                <p className="mt-3 text-xs md:text-sm font-medium text-[#3B2412]">
-                  {partner.name}
-                </p>
               </div>
+
+              {/* Nome do parceiro */}
+              <h3 className="text-center font-semibold text-lg text-hf-brown group-hover:text-hf-gold transition-colors duration-300">
+                {partner.name}
+              </h3>
+
+              {/* Barra decorativa */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-hf-gold to-hf-gold-dark rounded-full group-hover:w-3/4 transition-all duration-500" />
             </a>
           ))}
+        </div>
+
+        {/* Mensagem adicional */}
+        <div className="mt-12 text-center">
+          <p className="text-neutral-600 italic">
+            Parcerias estratégicas que garantem excelência em cada evento
+          </p>
         </div>
       </div>
     </section>

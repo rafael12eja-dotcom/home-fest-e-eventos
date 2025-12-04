@@ -3,127 +3,78 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://homefesteeventos.com.br/</loc>
-    <lastmod>2025-11-10</lastmod>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    
-    <!-- Imagens principais do site -->
     <image:image>
-      <image:loc>https://homefesteeventos.com.br/hero.jpg</image:loc>
-      <image:caption>Buffet para eventos em Belo Horizonte - Home Fest &amp; Eventos</image:caption>
-      <image:title>Hero - Buffet Home Fest</image:title>
+      <image:loc>https://homefesteeventos.com.br/hero.webp</image:loc>
+      <image:caption>Buffet para festas em casa e eventos em Belo Horizonte - Home Fest &amp; Eventos</image:caption>
+      <image:title>Home Fest &amp; Eventos - Buffet e Home Fest em BH</image:title>
     </image:image>
-    
     <image:image>
-      <image:loc>https://homefesteeventos.com.br/about.jpg</image:loc>
-      <image:caption>Equipe especializada em buffet e catering em BH</image:caption>
-      <image:title>Sobre - Home Fest &amp; Eventos</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/cafedamanha.jpg</image:loc>
-      <image:caption>Café da manhã corporativo em Belo Horizonte</image:caption>
-      <image:title>Café da Manhã - Buffet BH</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/fingerfood.jpg</image:loc>
-      <image:caption>Finger food para eventos em BH</image:caption>
-      <image:title>Finger Food - Home Fest</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/coffeebreak.jpg</image:loc>
-      <image:caption>Coffee break corporativo em Belo Horizonte</image:caption>
-      <image:title>Coffee Break - Buffet BH</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/almoco.jpg</image:loc>
-      <image:caption>Almoço para eventos corporativos em BH</image:caption>
-      <image:title>Almoço - Buffet Home Fest</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/jantar.jpg</image:loc>
-      <image:caption>Jantar elegante para eventos em Belo Horizonte</image:caption>
-      <image:title>Jantar - Home Fest &amp; Eventos</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/catering.jpg</image:loc>
-      <image:caption>Catering completo para eventos em BH</image:caption>
-      <image:title>Catering - Buffet BH</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-infantil.jpg</image:loc>
-      <image:caption>Buffet infantil em Belo Horizonte</image:caption>
-      <image:title>Festa Infantil - Home Fest</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-15anos.jpg</image:loc>
-      <image:caption>Buffet para festa de 15 anos em BH</image:caption>
-      <image:title>15 Anos - Buffet BH</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-casamento.jpg</image:loc>
-      <image:caption>Buffet para casamento em Belo Horizonte</image:caption>
-      <image:title>Casamento - Home Fest &amp; Eventos</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-churrasco.jpg</image:loc>
-      <image:caption>Churrasco para eventos em BH</image:caption>
-      <image:title>Churrasco - Buffet Home Fest</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-boteco.jpg</image:loc>
-      <image:caption>Comida de boteco para eventos em Belo Horizonte</image:caption>
-      <image:title>Comida de Boteco - Home Fest</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-empresas.jpg</image:loc>
-      <image:caption>Buffet corporativo em BH</image:caption>
-      <image:title>Eventos Corporativos - Buffet BH</image:title>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://homefesteeventos.com.br/portfolio-escolar.jpg</image:loc>
-      <image:caption>Buffet para eventos escolares em Belo Horizonte</image:caption>
-      <image:title>Festa Escolar - Home Fest</image:title>
+      <image:loc>https://homefesteeventos.com.br/about.webp</image:loc>
+      <image:caption>Equipe especializada em buffet e catering em Belo Horizonte</image:caption>
+      <image:title>Equipe Home Fest &amp; Eventos</image:title>
     </image:image>
   </url>
+
   <url>
     <loc>https://homefesteeventos.com.br/buffet-infantil-bh</loc>
-    <lastmod>2025-11-10</lastmod>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://homefesteeventos.com.br/hero-buffet-infantil-bh.jpg</image:loc>
+      <image:caption>Buffet infantil em Belo Horizonte com decoração colorida</image:caption>
+      <image:title>Buffet Infantil em BH - Home Fest &amp; Eventos</image:title>
+    </image:image>
   </url>
 
   <url>
-    <loc>https://homefesteeventos.com.br/servicos/churrasco</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://homefesteeventos.com.br/buffet-churrasco-bh</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://homefesteeventos.com.br/churrasco.webp</image:loc>
+      <image:caption>Churrasco em domicílio com cortes selecionados e buffet completo</image:caption>
+      <image:title>Churrasco em domicílio em BH</image:title>
+    </image:image>
   </url>
 
   <url>
-    <loc>https://homefesteeventos.com.br/servicos/almoco-jantar</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://homefesteeventos.com.br/buffet-almoco-jantar-bh</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://homefesteeventos.com.br/almoco-jantar.webp</image:loc>
+      <image:caption>Buffet de almoço e jantar para eventos em Belo Horizonte</image:caption>
+      <image:title>Buffet Almoço e Jantar em BH</image:title>
+    </image:image>
   </url>
 
   <url>
-    <loc>https://homefesteeventos.com.br/servicos/festa-escolar</loc>
-    <lastmod>2025-11-10</lastmod>
+    <loc>https://homefesteeventos.com.br/festa-escolar-bh</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://homefesteeventos.com.br/escolar.webp</image:loc>
+      <image:caption>Festa escolar com buffet completo e logística pensada para escolas</image:caption>
+      <image:title>Buffet para Festa Escolar em BH</image:title>
+    </image:image>
   </url>
 
+  <url>
+    <loc>https://homefesteeventos.com.br/festa-15-anos-bh</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://homefesteeventos.com.br/15anos.webp</image:loc>
+      <image:caption>Festa de 15 anos com decoração sofisticada em Belo Horizonte</image:caption>
+      <image:title>Festa de 15 Anos em BH - Home Fest &amp; Eventos</image:title>
+    </image:image>
+  </url>
 </urlset>

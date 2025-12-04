@@ -21,9 +21,9 @@
   <link rel="preload" as="image" href="./logo.png" type="image/png" />
 
   <!-- SEO local -->
-  <link rel="canonical" href="https://homefesteeventos.com.br/" />
+  
   <link rel="alternate" hreflang="pt-br" href="https://homefesteeventos.com.br/" />
-  <meta name="description" content="Buffet e Home Fest em Belo Horizonte – MG. Festa em Casa, Catering e Buffet em Domicílio. Cardápios completos para eventos sociais e corporativos. Peça seu orçamento pelo WhatsApp." />
+  
   <meta name="keywords" content="festa em casa bh, home fest bh, buffet em domicílio belo horizonte, buffet bh, catering bh, festa no meu espaço bh, buffet para casamento bh, buffet para festa infantil bh, eventos corporativos bh, coffee break bh, finger food belo horizonte" />
   <meta name="author" content="Home Fest &amp; Eventos" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -33,14 +33,7 @@
   <meta name="geo.position" content="-19.9167;-43.9345" />
   <meta name="ICBM" content="-19.9167, -43.9345" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Home Fest &amp; Eventos | Buffet e Home Fest em Belo Horizonte – MG">
-  <meta property="og:description" content="Cardápios e experiências gastronômicas para seu evento em BH. Fale no WhatsApp e garanta sua data.">
-  <meta property="og:url" content="https://homefesteeventos.com.br/">
-  <meta property="og:image" content="https://homefesteeventos.com.br/og-cover.jpg">
-
-  <!-- Twitter -->
+  
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Home Fest &amp; Eventos | Buffet e Home Fest em Belo Horizonte – MG">
   <meta name="twitter:description" content="Cardápios e experiências gastronômicas para seu evento em BH.">
@@ -68,13 +61,96 @@
   }
   </script>
 
+
+<!-- JSON-LD Organization (marca + logo) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Home Fest & Eventos",
+  "url": "https://homefesteeventos.com.br/",
+  "logo": "https://homefesteeventos.com.br/logo.png",
+  "image": "https://homefesteeventos.com.br/og-cover.jpg",
+  "telephone": "+55 31 99918-6245",
+  "sameAs": [
+    "https://www.instagram.com/homefesteventos",
+    "https://facebook.com/homefesteventos"
+  ]
+}
+</script>
+
   <!-- Bundle do app (Vite) -->
   
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#D4AF37">
-  <script type="module" crossorigin src="./assets/index-BGU77GHu.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-54u6zgLg.css">
+
+  <meta name="description" content="Buffet infantil, home fest, churrasco, almoço e jantar para eventos em Belo Horizonte. A Home Fest & Eventos leva comida, estrutura e experiência premium até você." />
+  <link rel="canonical" href="https://homefesteeventos.com.br/" />
+
+  <!-- Open Graph principal -->
+  <meta property="og:site_name" content="Home Fest &amp; Eventos" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <meta property="og:title" content="Home Fest &amp; Eventos — Buffet e Home Fest em Belo Horizonte" />
+  <meta property="og:description" content="Buffet infantil, churrasco, almoço/jantar e eventos completos em Belo Horizonte. Atendimento premium e estrutura completa no seu espaço." />
+  <meta property="og:image" content="https://homefesteeventos.com.br/hero.jpg" />
+  <meta property="og:url" content="https://homefesteeventos.com.br/" />
+  <meta property="og:type" content="website" />
+
+  <!-- JSON-LD global: WebSite + Organization + LocalBusiness -->
+  <script type="application/ld+json" data-hf="global-schema">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://homefesteeventos.com.br/#website",
+        "url": "https://homefesteeventos.com.br/",
+        "name": "Home Fest & Eventos",
+        "inLanguage": "pt-BR",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://homefesteeventos.com.br/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://homefesteeventos.com.br/#organization",
+        "name": "Home Fest & Eventos",
+        "url": "https://homefesteeventos.com.br/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://homefesteeventos.com.br/logo.png"
+        },
+        "sameAs": [
+          "https://www.instagram.com/homefesteeventos"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://homefesteeventos.com.br/#localbusiness",
+        "name": "Home Fest & Eventos",
+        "image": "https://homefesteeventos.com.br/hero.jpg",
+        "url": "https://homefesteeventos.com.br/",
+        "telephone": "+5531999186245",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "servesCuisine": "Brasileira",
+        "description": "Buffet infantil, home fest, churrasco, almoço/jantar e festas escolares em Belo Horizonte."
+      }
+    ]
+  }
+  </script>
+
+  <script type="module" crossorigin src="./assets/index-voDLw7xS.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D804z9-T.css">
 </head>
 <body class="bg-offwhite">
   <!-- Google Tag Manager (noscript) -->

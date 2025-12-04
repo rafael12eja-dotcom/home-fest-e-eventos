@@ -13,8 +13,8 @@ export type BlogPost = BlogPostSummary & {
   coverAlt?: string;
 };
 
-const API_URL = (import.meta.env.VITE_BLOG_API_URL || "").replace(/\/+$/, "");
-const API_KEY = import.meta.env.VITE_BLOG_API_KEY || "";
+const API_URL = ""; // Removido para desativar a busca por API
+const API_KEY = ""; // Removido para desativar a busca por API
 
 /**
  * Busca todos os posts do blog na API oficial do Railway.
@@ -22,7 +22,7 @@ const API_KEY = import.meta.env.VITE_BLOG_API_KEY || "";
  */
 export async function getAllPosts(): Promise<BlogPostSummary[]> {
   if (!API_URL) {
-    console.warn("[blogApi] VITE_BLOG_API_URL não configurada");
+    // Se não houver API, retorna um array vazio para não travar
     return [];
   }
 
@@ -58,7 +58,7 @@ export async function getPostBySlug(
   slug: string
 ): Promise<BlogPost | null> {
   if (!API_URL) {
-    console.warn("[blogApi] VITE_BLOG_API_URL não configurada");
+    // Se não houver API, retorna null para não travar
     return null;
   }
 
