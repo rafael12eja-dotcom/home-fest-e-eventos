@@ -15,6 +15,10 @@ export default {
         "hf-gold-dark": "#C99A2F",     // Dourado escuro
         "hf-cream-dark": "#F3EADD",    // Bege escuro
         
+        // Acentos Infantis
+        "hf-vibrant-green": "#4CAF50",
+        "hf-bright-yellow": "#FFC107",
+        
         // Compatibilidade com código existente (mapeamento)
         black: "#0B0B0B",
         gold: "#D9A441",
@@ -27,6 +31,7 @@ export default {
         lato: ["Lato", "ui-sans-serif", "system-ui", "sans-serif"],
         serif: ['"Playfair Display"', "Georgia", "serif"],
         sans: ["Lato", "ui-sans-serif", "system-ui", "sans-serif"],
+        varela: ['"Varela Round"', "sans-serif"],
       },
       borderRadius: {
         'xl': '1rem',

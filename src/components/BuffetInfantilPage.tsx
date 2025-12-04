@@ -2,9 +2,9 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import {
+  Baby,
   PartyPopper,
   Sparkles,
-  Baby,
   ShieldCheck,
   UtensilsCrossed,
   CupSoda,
@@ -14,286 +14,592 @@ import {
 
 const whatsappNumber = "5531999186245";
 const whatsappMessage = encodeURIComponent(
-  "Olá! Gostaria de solicitar um orçamento de buffet infantil em Belo Horizonte com a Home Fest & Eventos."
+  "Olá, gostaria de um orçamento para buffet infantil em casa em BH. Data aproximada: __ / Número de convidados: __ / Bairro: __."
 );
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const BuffetInfantilPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#FFF7EC] text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-[#FFF8F0] text-neutral-900 flex flex-col">
       <Header />
 
-      <main className="flex-1 pt-28">
-        {/* HERO BUFFET INFANTIL */}
-        <section id="topo" className="relative overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src="/hero-buffet-infantil-bh.jpg"
-              alt="Buffet infantil em Belo Horizonte com decoração colorida"
-              className="w-full h-full object-cover"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-transparent" />
+      <main className="pt-28 md:pt-32 lg:pt-40 pb-20">
+        {/* HERO */}
+        <section className="border-b border-hf-gold/15 bg-gradient-to-b from-hf-cream/90 to-[#FFF8F0]">
+          <div className="max-w-6xl mx-auto px-6 py-10 md:py-14 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+            <div className="flex-1 space-y-5">
+              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-hf-gold">
+                Buffet infantil em casa em Belo Horizonte
+              </p>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-hf-brown leading-tight">
+                Buffet infantil em casa com estrutura completa e clima de aconchego
+              </h1>
+              <p className="text-[15px] md:text-base text-hf-brown/80 max-w-xl leading-relaxed">
+                A Home Fest &amp; Eventos leva o buffet até a sua casa, salão do prédio ou espaço de convivência
+                em Belo Horizonte e região, com cardápio à vontade, equipe completa e uma operação pensada para
+                espaços reais.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm md:text-base font-semibold bg-hf-gold text-white shadow-[0_14px_40px_rgba(180,122,63,0.45)] hover:shadow-[0_18px_52px_rgba(180,122,63,0.6)] hover:-translate-y-0.5 transition-all duration-300"
+                  aria-label="Solicitar orçamento para buffet infantil em casa"
+                >
+                  <Baby className="w-5 h-5" />
+                  <span>Quero um orçamento</span>
+                </a>
+
+                <a
+                  href="#como-funciona"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm md:text-[15px] font-semibold border border-hf-gold/60 text-hf-brown hover:bg-hf-cream/60 transition-colors"
+                >
+                  <span>Entenda como funciona</span>
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-4 text-[12px] text-hf-brown/75">
+                <div className="inline-flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-hf-vibrant-green" />
+                  <span>Equipe especializada em festas infantis</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5">
+                  <UtensilsCrossed className="w-4 h-4 text-hf-gold" />
+                  <span>Cardápio à vontade para crianças e adultos</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4 text-hf-gold" />
+                  <span>Atendimento em BH e região</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex-1 flex justify-center">
+              <div className="relative w-full max-w-md">
+                <div className="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-hf-gold/15 via-hf-bright-yellow/10 to-hf-vibrant-green/15 blur-xl" />
+                <div className="relative rounded-[32px] bg-white/90 border border-hf-gold/20 shadow-[0_22px_80px_rgba(0,0,0,0.12)] overflow-hidden p-5 flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-2xl bg-hf-gold/10 flex items-center justify-center">
+                      <PartyPopper className="w-5 h-5 text-hf-gold" />
+                    </div>
+                    <div>
+                      <p className="text-[12px] font-semibold tracking-[0.22em] uppercase text-hf-gold">
+                        Festa infantil em casa
+                      </p>
+                      <p className="text-sm text-hf-brown/80">
+                        Acolhimento de casa, operação de buffet profissional.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="aspect-video rounded-3xl bg-[url('/infantil.webp')] bg-cover bg-center" />
+
+                  <ul className="space-y-2 text-[13px] text-hf-brown/80">
+                    <li className="flex gap-2">
+                      <span className="text-hf-vibrant-green font-bold">•</span>
+                      <span>Cardápio pensado para crianças, pais, avós e convidados especiais.</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-hf-vibrant-green font-bold">•</span>
+                      <span>Montagem adaptada ao seu espaço: casa, apartamento ou salão.</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-hf-vibrant-green font-bold">•</span>
+                      <span>Você aproveita a festa, a equipe Home Fest cuida do buffet.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* O QUE É */}
+        <section
+          id="sobre"
+          className="max-w-6xl mx-auto px-6 pt-12 md:pt-16 pb-10 md:pb-14 space-y-6"
+        >
+          <div className="max-w-3xl">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown mb-3">
+              O que é um buffet infantil em casa com a Home Fest &amp; Eventos
+            </h2>
+            <p className="text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+              Fazer a festa de aniversário em casa é o sonho de muitas famílias, mas a parte da cozinha,
+              da louça e da organização costuma virar um problema. O buffet infantil em casa da Home Fest &amp;
+              Eventos nasce justamente para resolver isso: nós levamos toda a estrutura de buffet até a sua
+              residência, salão do prédio ou espaço de convivência, com cardápio infantil e adulto,
+              equipe completa e serviço contínuo.
+            </p>
+            <p className="mt-3 text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+              Você recebe em casa, com a sua decoração, o seu clima e o carinho da sua família, enquanto
+              nossa equipe cuida de tudo o que envolve comida, bebida e atendimento aos convidados.
+            </p>
+          </div>
+        </section>
+
+        {/* COMO FUNCIONA */}
+        <section
+          id="como-funciona"
+          className="bg-white/70 border-y border-hf-gold/10"
+        >
+          <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-2 gap-10 md:gap-14 items-start">
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown">
+                Como funciona o buffet infantil em casa na prática
+              </h2>
+              <p className="text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+                Cada festa é planejada de forma personalizada, mas o funcionamento segue um fluxo organizado
+                para que você tenha segurança do começo ao fim:
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-hf-gold/15 flex items-center justify-center">
+                    <Sparkles className="w-4 h-4 text-hf-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold text-hf-brown">
+                      1. Briefing e definição do formato
+                    </h3>
+                    <p className="text-[14px] text-hf-brown/80 leading-relaxed">
+                      Alinhamos data, horário, número de convidados (adultos e crianças), faixa etária,
+                      restrições alimentares e o estilo da festa. A partir disso, indicamos o cardápio ideal
+                      e a estrutura necessária.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-hf-gold/15 flex items-center justify-center">
+                    <MapPin className="w-4 h-4 text-hf-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold text-hf-brown">
+                      2. Estudo do espaço
+                    </h3>
+                    <p className="text-[14px] text-hf-brown/80 leading-relaxed">
+                      Você nos envia fotos e medidas aproximadas do local, e nossa equipe orienta a melhor
+                      disposição para mesa de buffet, circulação de convidados e área das crianças.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-hf-gold/15 flex items-center justify-center">
+                    <Clock3 className="w-4 h-4 text-hf-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold text-hf-brown">
+                      3. Preparação e chegada da equipe
+                    </h3>
+                    <p className="text-[14px] text-hf-brown/80 leading-relaxed">
+                      No dia da festa, a equipe chega com antecedência para organizar cozinha, equipamentos,
+                      montagem das ilhas ou mesas de serviço e apoio ao fluxo de convidados.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-hf-gold/15 flex items-center justify-center">
+                    <UtensilsCrossed className="w-4 h-4 text-hf-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold text-hf-brown">
+                      4. Serviço durante todo o evento
+                    </h3>
+                    <p className="text-[14px] text-hf-brown/80 leading-relaxed">
+                      Durante a festa, nossa equipe cuida da reposição do buffet, saída dos salgados,
+                      finalização dos pratos, reposição das bebidas e atendimento aos convidados.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <div className="mt-1 w-8 h-8 rounded-full bg-hf-gold/15 flex items-center justify-center">
+                    <ShieldCheck className="w-4 h-4 text-hf-gold" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-semibold text-hf-brown">
+                      5. Encerramento e organização final
+                    </h3>
+                    <p className="text-[14px] text-hf-brown/80 leading-relaxed">
+                      Ao final do evento, finalizamos o serviço, organizamos a área do buffet e deixamos o
+                      ambiente pronto para você encerrar a festa com tranquilidade.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl bg-hf-cream/70 border border-hf-gold/15 p-6 md:p-7 space-y-5">
+              <h3 className="text-[15px] font-semibold tracking-[0.22em] uppercase text-hf-gold">
+                Informação prática
+              </h3>
+              <p className="text-[14px] md:text-[15px] text-hf-brown/85 leading-relaxed">
+                Cada festa infantil em casa é estruturada pensando no seu espaço e no conforto dos convidados.
+                Trabalhamos com horários claros de chegada, montagem, serviço e encerramento, para você saber
+                exatamente como será o dia da festa.
+              </p>
+              <div className="flex flex-wrap gap-3 text-[13px] text-hf-brown/80">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 border border-hf-gold/20">
+                  <Clock3 className="w-4 h-4 text-hf-gold" />
+                  <span>Chegada com antecedência programada</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 border border-hf-gold/20">
+                  <Sparkles className="w-4 h-4 text-hf-gold" />
+                  <span>Equipe discreta e organizada</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* O QUE ESTÁ INCLUSO */}
+        <section
+          id="incluso"
+          className="max-w-6xl mx-auto px-6 py-12 md:py-16 space-y-8"
+        >
+          <div className="max-w-3xl space-y-3">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown">
+              O que está incluso no buffet infantil em casa
+            </h2>
+            <p className="text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+              O formato pode variar conforme o cardápio escolhido, mas, de forma geral, o buffet infantil em casa
+              com a Home Fest &amp; Eventos inclui:
+            </p>
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-	            <div className="flex-1">
-	              {/* Ajuste de contraste e legibilidade */}
-	              <div className="space-y-5 text-white bg-hf-brown/70 backdrop-blur-sm rounded-3xl px-5 py-6 md:px-7 md:py-7 shadow-[0_18px_45px_rgba(0,0,0,.55)] border-2 border-hf-gold/30">
-	                <p className="inline-flex items-center gap-2 text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-hf-gold-light">
-	                  <PartyPopper className="w-4 h-4" />
-	                  Buffet infantil em Belo Horizonte
-	                </p>
-	
-		                <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight drop-shadow-lg text-white">
-	                  Festa infantil completa, no seu espaço, com clima de casa e estrutura de buffet.
-	                </h1>
-	
-	                <p className="text-sm md:text-lg text-hf-cream max-w-xl">
-	                  Ideal para quem quer comemorar em casa, no prédio ou no salão do condomínio, com cardápio infantil,
-	                  equipe organizada e aquela atmosfera alegre que as crianças amam.
-	                </p>
-	
-	                <div className="flex flex-col sm:flex-row gap-3 pt-2">
-	                  <a
-	                    href={whatsappLink}
-	                    target="_blank"
-	                    rel="noopener noreferrer"
-	                    className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
-	                  >
-	                    <Baby className="w-4 h-4" />
-	                    <span>Orçamento infantil</span>
-	                  </a>
-	
-	                  {/* Botão outline com contraste corrigido */}
-	                  <a
-	                    href="#detalhes"
-	                    className="hf-btn hf-btn--outline hf-btn--hero inline-flex items-center justify-center gap-2 text-base bg-white/10 border-white/70 text-white hover:bg-white/20 hover:border-white"
-	                  >
-	                    <span>Ver tudo o que está incluso</span>
-	                  </a>
-	                </div>
-	              </div>
-	            </div>
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-6 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-hf-gold/15 flex items-center justify-center">
+                  <UtensilsCrossed className="w-5 h-5 text-hf-gold" />
+                </div>
+                <h3 className="text-lg font-semibold text-hf-brown">
+                  Buffet salgado
+                </h3>
+              </div>
+              <p className="text-[14px] text-hf-brown/85 leading-relaxed">
+                Cardápio com variedade de salgados pensados para crianças e adultos, com serviço à vontade e
+                reposição contínua durante o evento.
+              </p>
+            </div>
 
-            <div className="hidden lg:block flex-1" aria-hidden="true" />
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-6 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-hf-gold/15 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-hf-gold" />
+                </div>
+                <h3 className="text-lg font-semibold text-hf-brown">
+                  Doces
+                </h3>
+              </div>
+              <p className="text-[14px] text-hf-brown/85 leading-relaxed">
+                Seleção de doces clássicos de aniversário infantil, com possibilidade de personalização conforme
+                o tema e as preferências da família.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-6 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-hf-gold/15 flex items-center justify-center">
+                  <CupSoda className="w-5 h-5 text-hf-gold" />
+                </div>
+                <h3 className="text-lg font-semibold text-hf-brown">
+                  Bebidas
+                </h3>
+              </div>
+              <p className="text-[14px] text-hf-brown/85 leading-relaxed">
+                Opções de bebidas não alcoólicas, com serviço contínuo de refrigerantes, sucos e água, de acordo
+                com o formato contratado.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-6 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-hf-gold/15 flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-hf-gold" />
+                </div>
+                <h3 className="text-lg font-semibold text-hf-brown">
+                  Equipe e equipamentos de buffet
+                </h3>
+              </div>
+              <p className="text-[14px] text-hf-brown/85 leading-relaxed">
+                Equipe de cozinha e atendimento, além de equipamentos necessários para aquecimento, fritura e
+                montagem do serviço de buffet em casa.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* VANTAGENS */}
+        <section
+          id="vantagens"
+          className="bg-hf-cream/70 border-y border-hf-gold/10"
+        >
+          <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 grid md:grid-cols-[1.1fr,0.9fr] gap-10 md:gap-14 items-start">
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown">
+                Por que escolher a festa infantil em casa com buffet profissional
+              </h2>
+              <p className="text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+                A festa infantil em casa com a Home Fest une o melhor dos dois mundos: o aconchego do seu espaço
+                com a segurança de um buffet profissional.
+              </p>
+
+              <ul className="space-y-3 text-[14px] text-hf-brown/85 leading-relaxed">
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>
+                    <strong>Conforto para as crianças</strong> – elas brincam em um ambiente conhecido,
+                    com acesso fácil a brinquedos, quarto e área de lazer.
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>
+                    <strong>Proximidade da família</strong> – avós, padrinhos e convidados especiais vivem a festa
+                    em um clima mais intimista e acolhedor.
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>
+                    <strong>Operação profissional</strong> – a equipe Home Fest cuida de forno, fogão, fritura,
+                    reposição de mesa e atendimento; você aproveita a festa.
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>
+                    <strong>Cardápio pensado para todos</strong> – montamos o cardápio considerando crianças,
+                    adultos e possíveis restrições alimentares.
+                  </span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>
+                    <strong>Melhor aproveitamento do tempo</strong> – sem deslocamentos longos e sem levar e buscar
+                    utensílios em buffet tradicional.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-6 md:p-7 space-y-4">
+              <h3 className="text-[15px] font-semibold tracking-[0.22em] uppercase text-hf-gold">
+                Clima de casa com resultado profissional
+              </h3>
+              <p className="text-[14px] md:text-[15px] text-hf-brown/85 leading-relaxed">
+                A proposta da Home Fest &amp; Eventos é que você sinta que está recebendo amigos e familiares na
+                sua casa, mas com todo o conforto e a segurança de ter um time experiente conduzindo o buffet.
+              </p>
+              <p className="text-[14px] md:text-[15px] text-hf-brown/85 leading-relaxed">
+                Nosso foco é que você viva a festa, e não os bastidores da cozinha.
+              </p>
+            </div>
           </div>
         </section>
 
         {/* PARA QUEM É */}
-        <section className="bg-[#FFF7EC] py-16 md:py-20">
-          <div className="max-w-5xl mx-auto px-6 md:px-8">
-            <div className="mb-10 text-center md:text-left">
-              <p className="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-[#B47A3F]">
-                Para quem é a festa infantil Home Fest?
-              </p>
-              <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
-                Para famílias que querem comemorar em casa, com organização de buffet.
-              </h2>
-              <p className="text-sm md:text-base text-[#6A4628]">
-                Indicado para quem deseja receber família e amigos em casa, no salão do prédio ou no espaço da
-                escola, com cardápio infantil completo, equipe treinada e condução profissional da festa.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="rounded-2xl border border-[#F1DFC5] bg-white shadow-sm p-5 flex flex-col gap-2">
-                <h3 className="font-semibold flex items-center gap-2 text-[#3B2412]">
-                  <Clock3 className="w-4 h-4 text-[#F3A93B]" />
-                  Duração de festa
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Festa infantil com duração média de 4 horas, ajustada ao horário do espaço e à idade das crianças.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#F1DFC5] bg-white shadow-sm p-5 flex flex-col gap-2">
-                <h3 className="font-semibold flex items-center gap-2 text-[#3B2412]">
-                  <MapPin className="w-4 h-4 text-[#F3A93B]" />
-                  Onde atendemos
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Atendemos Belo Horizonte e região, em casas, apartamentos, salões de festa, áreas comuns de
-                  condomínio e escolas.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-[#F1DFC5] bg-white shadow-sm p-5 flex flex-col gap-2">
-                <h3 className="font-semibold flex items-center gap-2 text-[#3B2412]">
-                  <Sparkles className="w-4 h-4 text-[#F3A93B]" />
-                  Clima de casa
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Você escolhe o tema e o espaço, nós levamos a estrutura de buffet, cardápio infantil e equipe
-                  preparada para conduzir a festa com tranquilidade.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CARDÁPIO / O QUE ESTÁ INCLUSO */}
         <section
-          id="detalhes"
-          className="bg-white py-16 md:py-20 border-y border-[#F2E4CF]"
+          id="para-quem-e"
+          className="max-w-6xl mx-auto px-6 py-12 md:py-16 space-y-8"
         >
-          <div className="max-w-6xl mx-auto px-6 md:px-8">
-            <div className="mb-10 text-center md:text-left">
-              <p className="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-[#B47A3F]">
-                O que está incluso
-              </p>
-              <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
-                Cardápio infantil no formato coquetel, pensado para crianças e adultos.
-              </h2>
-              <p className="text-sm md:text-base text-[#6A4628] max-w-3xl">
-                Utilizamos como base o cardápio oficial infantil da Home Fest &amp; Eventos, com salgados, doces e
-                bebidas planejados para agradar as crianças e, ao mesmo tempo, acolher pais e convidados.
-              </p>
+          <div className="max-w-3xl space-y-3">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown">
+              Para quem o buffet infantil em casa é ideal
+            </h2>
+            <p className="text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+              O buffet infantil em casa é ideal para famílias que:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-6 space-y-3">
+              <ul className="space-y-3 text-[14px] text-hf-brown/85 leading-relaxed">
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>Valorizam a sensação de receber em casa, mas não querem se preocupar com a cozinha.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>Desejam uma festa mais intimista, com convidados realmente próximos.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>Preferem um ambiente conhecido para crianças pequenas.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>Buscam um serviço profissional que se adapte ao espaço que já possuem.</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-10">
-              {/* Salgados */}
-              <div className="space-y-3">
-                <h3 className="flex items-center gap-2 font-semibold text-[#3B2412] mb-1">
-                  <UtensilsCrossed className="w-4 h-4 text-[#F3A93B]" />
-                  Salgados
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Seleção de salgados clássicos de festa infantil, servidos ao longo do evento.
-                </p>
-                <ul className="list-disc list-inside text-sm text-[#5B3B22] space-y-1">
-                  <li>Mini coxinha, bolinha de queijo e croquete de carne.</li>
-                  <li>Mini quibe, enroladinho de salsicha e folhados variados.</li>
-                  <li>
-                    Itens especiais como mini hambúrguer, mini hot dog ou mini pizza podem ser incluídos conforme
-                    a proposta da festa.
-                  </li>
-                </ul>
-              </div>
+            <div className="rounded-3xl bg-hf-cream/80 border border-hf-gold/20 p-6 space-y-3">
+              <h3 className="text-lg font-semibold text-hf-brown">
+                E quando esse formato não é o mais indicado?
+              </h3>
+              <p className="text-[14px] text-hf-brown/85 leading-relaxed">
+                Em alguns casos, um salão infantil tradicional ou um espaço de eventos pode fazer mais sentido,
+                por exemplo, quando:
+              </p>
+              <ul className="space-y-3 text-[14px] text-hf-brown/85 leading-relaxed">
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>O número de convidados é muito superior à capacidade do imóvel.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>A festa exige brinquedos de grande porte que dependem de pé-direito e área específica.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 text-hf-vibrant-green font-bold">•</span>
+                  <span>O condomínio tem restrições muito rígidas de horário e circulação.</span>
+                </li>
+              </ul>
+              <p className="mt-3 text-[14px] text-hf-brown/85 leading-relaxed">
+                Em caso de dúvida, nossa equipe orienta com clareza, sempre com foco em segurança e conforto.
+              </p>
+            </div>
+          </div>
+        </section>
 
-              {/* Doces */}
-              <div className="space-y-3">
-                <h3 className="flex items-center gap-2 font-semibold text-[#3B2412] mb-1">
-                  <Sparkles className="w-4 h-4 text-[#F3A93B]" />
-                  Doces
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Doces tradicionais de aniversário, com possibilidade de personalização de cores e detalhes.
-                </p>
-                <ul className="list-disc list-inside text-sm text-[#5B3B22] space-y-1">
-                  <li>Brigadeiro, beijinho, cajuzinho e outras opções clássicas.</li>
-                  <li>
-                    Versões com confeitos coloridos, granulados especiais e apresentações diferenciadas.
-                  </li>
-                  <li>
-                    Possibilidade de combinar o visual dos doces com o tema escolhido (cores, forminhas, toppers).
-                  </li>
-                </ul>
+        {/* DEPOIMENTO */}
+        <section
+          id="depoimento"
+          className="bg-[#FDF4E7] border-y border-hf-gold/10"
+        >
+          <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-2xl bg-hf-gold/15 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-hf-gold" />
               </div>
-
-              {/* Bebidas / Política */}
-              <div className="space-y-3">
-                <h3 className="flex items-center gap-2 font-semibold text-[#3B2412] mb-1">
-                  <CupSoda className="w-4 h-4 text-[#F3A93B]" />
-                  Bebidas e política de consumo
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Bebidas pensadas para crianças e adultos, com flexibilidade para o cliente levar itens extras.
+              <div className="space-y-4">
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown">
+                  Um exemplo real de festa infantil em casa
+                </h2>
+                <p className="text-[14px] md:text-[15px] text-hf-brown/85 leading-relaxed">
+                  “Fizemos o aniversário de 5 anos da nossa filha no salão do prédio e foi a primeira vez que
+                  não terminamos a festa exaustos. O buffet ficou por conta da Home Fest &amp; Eventos, que trouxe
+                  tudo pronto, organizou a cozinha e atendeu todo mundo com muita educação. As crianças comeram super
+                  bem e os adultos elogiaram demais o cardápio. Já não pensamos mais em outro formato.”
                 </p>
-                <ul className="list-disc list-inside text-sm text-[#5B3B22] space-y-1">
-                  <li>Refrigerantes tradicionais e zero (Coca-Cola, guaranás, entre outros).</li>
-                  <li>Água mineral e água com gás.</li>
-                  <li>
-                    O cliente pode levar bebidas alcoólicas (como cerveja, vinho ou destilados), conforme política
-                    combinada no contrato, sem taxa de rolha nas condições previamente alinhadas.
-                  </li>
-                </ul>
+                <p className="text-[13px] font-semibold text-hf-brown/75">
+                  — Família Silva, festa infantil em casa em Belo Horizonte
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* DIFERENCIAIS */}
-        <section className="bg-[#FFF7EC] py-16 md:py-20">
-          <div className="max-w-6xl mx-auto px-6 md:px-8">
-            <div className="mb-10 text-center md:text-left">
-              <p className="text-xs md:text-sm font-semibold tracking-[0.18em] uppercase text-[#B47A3F]">
-                Diferenciais Home Fest & Eventos
-              </p>
-              <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412] mb-3">
-                Festa infantil com acolhimento sofisticado e foco nas crianças.
-              </h2>
-              <p className="text-sm md:text-base text-[#6A4628] max-w-3xl">
-                A ideia é que você aproveite a festa junto com o seu filho, enquanto a equipe conduz o serviço,
-                organiza o fluxo de cardápio e cuida dos detalhes.
+        {/* FAQ */}
+        <section
+          id="faq"
+          className="max-w-6xl mx-auto px-6 py-12 md:py-16 space-y-8"
+        >
+          <div className="max-w-3xl space-y-3">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-hf-brown">
+              Dúvidas frequentes sobre o buffet infantil em casa
+            </h2>
+            <p className="text-[15px] md:text-base text-hf-brown/85 leading-relaxed">
+              Se ainda ficou alguma dúvida, estas são algumas das perguntas que mais recebemos no dia a dia:
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-5 md:p-6">
+              <h3 className="text-[15px] md:text-[16px] font-semibold text-hf-brown">
+                Quantos convidados vocês atendem em festa infantil em casa?
+              </h3>
+              <p className="mt-2 text-[14px] text-hf-brown/85 leading-relaxed">
+                Isso depende muito do espaço disponível. Em geral, trabalhamos com uma estimativa baseada na metragem,
+                layout e áreas que podem ser usadas (sala, varanda, salão do prédio, área externa). No primeiro contato,
+                nossa equipe orienta o limite recomendado com base nas suas informações.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="rounded-2xl bg-white border border-[#F1DFC5] shadow-sm p-5 flex flex-col gap-2">
-                <h3 className="flex items-center gap-2 font-semibold text-[#3B2412]">
-                  <ShieldCheck className="w-4 h-4 text-[#F3A93B]" />
-                  Equipe treinada
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Profissionais acostumados com rotina de festa infantil, atentos à segurança e ao conforto das
-                  crianças.
-                </p>
-              </div>
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-5 md:p-6">
+              <h3 className="text-[15px] md:text-[16px] font-semibold text-hf-brown">
+                Vocês levam todos os utensílios ou preciso emprestar algo?
+              </h3>
+              <p className="mt-2 text-[14px] text-hf-brown/85 leading-relaxed">
+                A parte de buffet, preparo e serviço é de responsabilidade da Home Fest. Em alguns formatos,
+                podemos aproveitar itens da casa se você desejar, mas isso não é obrigatório. Tudo é combinado na
+                proposta para ficar claro desde o início.
+              </p>
+            </div>
 
-              <div className="rounded-2xl bg-white border border-[#F1DFC5] shadow-sm p-5 flex flex-col gap-2">
-                <h3 className="flex items-center gap-2 font-semibold text-[#3B2412]">
-                  <PartyPopper className="w-4 h-4 text-[#F3A93B]" />
-                  Clima de celebração
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Cardápio pensado para circular bem durante toda a festa, sem filas e sem interrupções na diversão
-                  das crianças.
-                </p>
-              </div>
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-5 md:p-6">
+              <h3 className="text-[15px] md:text-[16px] font-semibold text-hf-brown">
+                Quanto tempo antes da festa a equipe chega?
+              </h3>
+              <p className="mt-2 text-[14px] text-hf-brown/85 leading-relaxed">
+                Normalmente chegamos com antecedência suficiente para preparar cozinha, equipamentos e montagem,
+                variando conforme o cardápio e o tamanho do evento. Esse horário é detalhado no momento da contratação.
+              </p>
+            </div>
 
-              <div className="rounded-2xl bg-white border border-[#F1DFC5] shadow-sm p-5 flex flex-col gap-2">
-                <h3 className="flex items-center gap-2 font-semibold text-[#3B2412]">
-                  <Sparkles className="w-4 h-4 text-[#F3A93B]" />
-                  Personalização
-                </h3>
-                <p className="text-sm text-[#6A4628]">
-                  Possibilidade de alinhar tema, detalhes decorativos e ajustes de cardápio conforme o perfil da
-                  família e da criança.
-                </p>
-              </div>
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-5 md:p-6">
+              <h3 className="text-[15px] md:text-[16px] font-semibold text-hf-brown">
+                Vocês atendem somente em Belo Horizonte?
+              </h3>
+              <p className="mt-2 text-[14px] text-hf-brown/85 leading-relaxed">
+                Atendemos Belo Horizonte e região, avaliando sempre distância, logística e viabilidade de equipe.
+                Informe seu bairro ou cidade no primeiro contato para confirmarmos a disponibilidade.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white/80 border border-hf-gold/20 p-5 md:p-6">
+              <h3 className="text-[15px] md:text-[16px] font-semibold text-hf-brown">
+                Posso adaptar o cardápio para alergias ou restrições alimentares?
+              </h3>
+              <p className="mt-2 text-[14px] text-hf-brown/85 leading-relaxed">
+                Sim. Conseguimos ajustar itens para convidados com restrições específicas, dentro das possibilidades
+                técnicas e de segurança alimentar. É importante informar essas necessidades já no briefing inicial.
+              </p>
             </div>
           </div>
         </section>
 
         {/* CTA FINAL */}
-        <section className="bg-white py-16 md:py-20 border-t border-[#F2E4CF]">
-          <div className="max-w-4xl mx-auto px-6 md:px-8 text-center space-y-6">
-            <h2 className="text-2xl md:text-3xl font-serif font-semibold text-[#3B2412]">
-              Quer receber o cardápio completo e os valores da festa infantil?
-            </h2>
-            <p className="text-sm md:text-base text-[#6A4628] max-w-2xl mx-auto">
-              Envie a data da festa, o bairro, o tipo de espaço (casa, salão, escola) e o número aproximado de
-              convidados. A partir disso, montamos a proposta ideal para a sua festa infantil.
-            </p>
+        <section
+          id="contato"
+          className="bg-gradient-to-br from-hf-brown via-hf-brown/95 to-[#2B1A10] text-white"
+        >
+          <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 flex flex-col md:flex-row gap-8 md:gap-10 items-center">
+            <div className="flex-1 space-y-4">
+              <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-hf-gold/80">
+                Próximo passo
+              </p>
+              <h2 className="text-2xl md:text-3xl font-serif font-bold">
+                Pronto para planejar a sua festa infantil em casa?
+              </h2>
+              <p className="text-[14px] md:text-[15px] text-white/90 leading-relaxed max-w-xl">
+                Se você quer um buffet infantil em casa com cardápio completo, equipe profissional e a essência
+                acolhedora da Home Fest &amp; Eventos, envie uma mensagem agora e conte um pouco sobre a festa
+                que está imaginando.
+              </p>
+            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex-1 flex flex-col items-start md:items-center gap-4">
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hf-btn hf-btn--hero hf-btn-hero-primary inline-flex items-center justify-center gap-2 text-base"
+                className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm md:text-base font-semibold bg-hf-gold text-hf-brown shadow-[0_18px_60px_rgba(180,122,63,0.7)] hover:-translate-y-0.5 transition-all duration-300"
+                aria-label="Falar com a Home Fest & Eventos no WhatsApp"
               >
-                <Baby className="w-4 h-4" />
-                <span>Solicitar orçamento infantil</span>
+                <Baby className="w-5 h-5" />
+                <span>Quero um orçamento para festa infantil em casa</span>
               </a>
-              <a
-                href="#topo"
-                className="hf-btn hf-btn--outline hf-btn--hero inline-flex items-center justify-center gap-2 text-base"
-              >
-                <span>Voltar ao topo</span>
-              </a>
+              <p className="text-[12px] text-white/75">
+                Você pode enviar data aproximada, número de convidados e bairro. Nossa equipe responde com
+                orientação e proposta personalizada.
+              </p>
             </div>
           </div>
         </section>

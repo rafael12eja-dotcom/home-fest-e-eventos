@@ -55,9 +55,7 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="Home Fest & Eventos - Buffet e Home Fest para festas em casa"
-                  className="h-24 w-auto drop-shadow-[0_10px_28px_rgba(0,0,0,0.55)] brightness-110"
-                  width="60"
-                  height="56"
+                  className="h-20 md:h-24 w-auto drop-shadow-[0_10px_28px_rgba(0,0,0,0.55)] brightness-110"
                   loading="lazy"
                 />
               </picture>

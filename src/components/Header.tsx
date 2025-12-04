@@ -120,9 +120,7 @@ const Header: React.FC = () => {
               <img
                 src="/logo.png"
                 alt="Home Fest & Eventos - Buffet e Home Fest para festas em casa"
-                className="h-24 sm:h-24 md:h-20 lg:h-24 xl:h-24 2xl:h-24 w-auto drop-shadow-[0_8px_24px_rgba(217,164,65,.35)]"
-                width={260}
-                height={140}
+                className="h-12 sm:h-12 md:h-10 lg:h-12 xl:h-12 2xl:h-12 w-auto drop-shadow-[0_8px_24px_rgba(217,164,65,.35)]"
                 loading="eager"
                 decoding="sync"
               />
