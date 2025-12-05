@@ -360,10 +360,10 @@ export const EVENT_TYPES: EventType[] = [
   },
   {
     id: "15anos",
-    title: "15 Anos",
+    title: "Festa de 15 Anos em Casa",
     excerpt:
-      "Produção completa para debutantes com cardápio elegante e serviço impecável.",
-    image: "portfolio-15anos.jpg",
+      "Festa de 15 anos em casa em Belo Horizonte com cardápio elegante, mesa de doces e ambientação assinada pela Home Fest & Eventos.",
+    image: "aniversario-15-anos-home-fest-e-eventos.svg",
     intro:
       "Nosso Cardápio Coquetel oferece a sofisticação e a variedade ideal para uma festa de 15 anos inesquecível, com opções de salgados, doces e bebidas premium.",
     sections: CARDAPIO_COQUETEL_BASE,

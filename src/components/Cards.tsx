@@ -64,10 +64,10 @@ const items: Item[] = [
   },
   {
     id: "15anos",
-    title: "15 Anos",
+    title: "Festa de 15 Anos em Casa",
     description:
-      "Celebração inesquecível com cardápio sofisticado e serviço impecável.",
-    img: "/15anos.jpg",
+      "Festa de 15 anos em casa em Belo Horizonte com buffet completo, mesa de doces e ambientação elegante assinada pela Home Fest & Eventos.",
+    img: "/aniversario-15-anos-home-fest-e-eventos.svg",
     saibaMaisHref: "#detalhes-15anos",
     whatsappHref: "https://wa.me/(31) 99918-6245",
   },

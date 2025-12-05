@@ -51,44 +51,59 @@ const App: React.FC = () => {
   const isBlogList = pathname === "/blog";
   const isBlogPost = pathname.startsWith("/blog/");
 
+  
   // Variáveis de SEO
-  let title = "Home Fest & Eventos - Buffet em Domicílio em Belo Horizonte";
-  let description = "Buffet completo em domicílio em BH: festas infantis, churrascos, almoços, jantares, eventos corporativos e celebrações. Equipe profissional e cardápio personalizado.";
+  let title = "Home Fest & Eventos | Buffet em Domicílio em Belo Horizonte";
+  let description =
+    "Buffet completo em domicílio em Belo Horizonte (BH) para festas infantis, aniversários, 15 anos, casamentos intimistas e eventos corporativos, com gastronomia premium e equipe profissional.";
 
   // Ajustar title e description por rota
   if (isBuffetInfantil) {
-    title = "Buffet Infantil em BH - Home Fest & Eventos";
-    description = "Buffet infantil completo em domicílio em Belo Horizonte. Festas em casa, salões e escolas com cardápio infantil, equipe profissional e estrutura completa.";
+    title = "Buffet Infantil em Casa em BH - Home Fest & Eventos";
+    description =
+      "Buffet infantil completo em domicílio em Belo Horizonte, ideal para festa infantil em casa, salão ou escola, com cardápio infantil, salgados, doces, bebidas e recreação.";
   } else if (isChurrasco) {
-    title = "Buffet Churrasco em BH - Home Fest & Eventos";
-    description = "Churrasco completo em domicílio em Belo Horizonte com carnes selecionadas, acompanhamentos e equipe de churrasqueiro e garçom.";
+    title = "Churrasco em Domicílio em BH - Home Fest & Eventos";
+    description =
+      "Churrasco completo em domicílio em Belo Horizonte, com cortes selecionados, acompanhamentos, equipe de churrasqueiro e serviço de buffet para festas em casa, sítio ou salão.";
   } else if (isAlmocoJantar) {
     title = "Buffet Almoço e Jantar em BH - Home Fest & Eventos";
-    description = "Buffet de almoço e jantar para eventos em Belo Horizonte com entradas, pratos principais, guarnições e serviço completo.";
+    description =
+      "Buffet de almoço e jantar para eventos em Belo Horizonte, com entradas, pratos principais, guarnições e serviço completo para festas de família, casamentos intimistas e eventos corporativos.";
   } else if (isFestaEscolar) {
     title = "Festa Escolar em BH - Home Fest & Eventos";
-    description = "Buffet para festas escolares em Belo Horizonte com cardápio infantil, logística adaptada e serviço rápido.";
+    description =
+      "Buffet para festas escolares em Belo Horizonte com cardápio infantil, logística adaptada para escolas, serviço rápido e estrutura completa para eventos pedagógicos e comemorativos.";
   } else if (isQuinzeAnos) {
     title = "Festa de 15 Anos em BH - Home Fest & Eventos";
-    description = "Buffet completo para festa de 15 anos em Belo Horizonte com coquetel, jantar e serviço para debuts.";
+    description =
+      "Buffet completo para festa de 15 anos em Belo Horizonte com coquetel, jantar, sobremesas e serviço especializado para debuts em casa, salões ou espaços de eventos.";
   } else if (isAniversarioAdulto) {
     title = "Aniversário Adulto em BH - Home Fest & Eventos";
-    description = "Buffet para aniversário de adultos em Belo Horizonte com cardápio personalizado e serviço completo.";
+    description =
+      "Buffet para aniversário adulto em Belo Horizonte com cardápio personalizado, opções de coquetel, jantar ou churrasco e serviço completo em domicílio.";
   } else if (isCasamento) {
     title = "Buffet para Casamento em BH - Home Fest & Eventos";
-    description = "Buffet completo para casamento em Belo Horizonte com coquetel, jantar e serviço profissional.";
+    description =
+      "Buffet completo para casamento em Belo Horizonte com serviço de mini wedding, casamento intimista em casa ou espaço próprio, com cardápio elegante e atendimento dedicado.";
   } else if (isConfraternizacaoCorporativa) {
     title = "Confraternização Corporativa em BH - Home Fest & Eventos";
-    description = "Buffet para confraternizações corporativas em Belo Horizonte com coquetel, almoço, jantar e serviço completo.";
+    description =
+      "Buffet para confraternizações corporativas em Belo Horizonte com opções de coffee break, coquetel, churrasco, almoço ou jantar em domicílio, no escritório ou em espaços parceiros.";
   } else if (isBlogList) {
-    title = "Blog - Home Fest & Eventos";
-    description = "Dicas, ideias e inspirações para festas e eventos em Belo Horizonte.";
+    title = "Blog Home Fest & Eventos | Dicas de Festa em BH";
+    description =
+      "Blog da Home Fest & Eventos com dicas, ideias e inspirações para organizar festas e eventos em Belo Horizonte, em casa, sítio, salão ou espaço corporativo.";
+  } else if (isBlogPost) {
+    title = "Conteúdo Home Fest & Eventos | Dicas para Festa em BH";
+    description =
+      "Conteúdos exclusivos da Home Fest & Eventos sobre buffet em domicílio, cardápios, decoração e organização de festas em Belo Horizonte e região.";
   }
 
   const seoData = { title, description };
 
   useEffect(() => {
-    // Ping do IndexNow sempre que o app monta, usando a URL atual
+    // Ping do IndexNow sempre que o app monta ou a rota muda
     if (typeof window !== "undefined") {
       const currentUrl = window.location.href;
       if (currentUrl) {
@@ -96,100 +111,100 @@ const App: React.FC = () => {
       }
     }
 
-
-    const metaDescription = document.querySelector(
-      'meta[name="description"]'
-    ) as HTMLMetaElement | null;
-
-    if (metaDescription) {
-      metaDescription.content = description;
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content = description;
-      document.head.appendChild(meta);
+    if (typeof document === "undefined") {
+      return;
     }
 
+    // Meta description dinâmica
+    const metaDescription = document.querySelector<HTMLMetaElement>(
+      'meta[name="description"]'
+    );
+    if (metaDescription) {
+      metaDescription.content = description;
+    }
 
-// Canonical e metatags sociais dinâmicas por rota
-const baseUrl = "https://homefesteeventos.com.br";
+    // Canonical, Open Graph e Twitter meta dinâmicos
+    const baseUrl = "https://homefesteeventos.com.br";
+    let canonicalPath = "/";
 
-let canonicalPath = "/";
-if (isBuffetInfantil) {
-  canonicalPath = "/buffet-infantil-bh";
-} else if (isChurrasco) {
-  canonicalPath = "/buffet-churrasco-bh";
-} else if (isAlmocoJantar) {
-  canonicalPath = "/buffet-almoco-jantar-bh";
-} else if (isFestaEscolar) {
-  canonicalPath = "/festa-escolar-bh";
-} else if (isQuinzeAnos) {
-  canonicalPath = "/festa-15-anos-bh";
-} else if (isAniversarioAdulto) {
-  canonicalPath = "/aniversario-adulto-bh";
-} else if (isCasamento) {
-  canonicalPath = "/buffet-casamento-bh";
-} else if (isConfraternizacaoCorporativa) {
-  canonicalPath = "/confraternizacao-corporativa-bh";
-} else if (isBlogList) {
-  canonicalPath = "/blog";
-}
+    if (isBuffetInfantil) {
+      canonicalPath = "/buffet-infantil-bh";
+    } else if (isChurrasco) {
+      canonicalPath = "/buffet-churrasco-bh";
+    } else if (isAlmocoJantar) {
+      canonicalPath = "/buffet-almoco-jantar-bh";
+    } else if (isFestaEscolar) {
+      canonicalPath = "/festa-escolar-bh";
+    } else if (isQuinzeAnos) {
+      canonicalPath = "/festa-15-anos-bh";
+    } else if (isAniversarioAdulto) {
+      canonicalPath = "/aniversario-adulto-bh";
+    } else if (isCasamento) {
+      canonicalPath = "/buffet-casamento-bh";
+    } else if (isConfraternizacaoCorporativa) {
+      canonicalPath = "/confraternizacao-corporativa-bh";
+    } else if (isBlogList) {
+      canonicalPath = "/blog";
+    } else if (isBlogPost && typeof window !== "undefined") {
+      // Mantém a URL completa do post de blog
+      canonicalPath = window.location.pathname;
+    }
 
-const canonicalUrl = `${baseUrl}${canonicalPath}`;
+    const canonicalUrl = `${baseUrl}${canonicalPath}`;
 
-const canonicalLink = document.querySelector(
-  'link[rel="canonical"]'
-) as HTMLLinkElement | null;
+    let canonicalLink = document.querySelector<HTMLLinkElement>(
+      'link[rel="canonical"]'
+    );
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link");
+      canonicalLink.rel = "canonical";
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.href = canonicalUrl;
 
-if (canonicalLink) {
-  canonicalLink.href = canonicalUrl;
-} else {
-  const linkEl = document.createElement("link");
-  linkEl.rel = "canonical";
-  linkEl.href = canonicalUrl;
-  document.head.appendChild(linkEl);
-}
+    const ogUrl = document.querySelector<HTMLMetaElement>(
+      'meta[property="og:url"]'
+    );
+    if (ogUrl) {
+      ogUrl.content = canonicalUrl;
+    }
 
-const ogUrl = document.querySelector(
-  'meta[property="og:url"]'
-) as HTMLMetaElement | null;
-if (ogUrl) {
-  ogUrl.content = canonicalUrl;
-}
+    const ogTitle = document.querySelector<HTMLMetaElement>(
+      'meta[property="og:title"]'
+    );
+    if (ogTitle) {
+      ogTitle.content = title;
+    }
 
-const ogTitle = document.querySelector(
-  'meta[property="og:title"]'
-) as HTMLMetaElement | null;
-if (ogTitle) {
-  ogTitle.content = title;
-}
+    const ogDescription = document.querySelector<HTMLMetaElement>(
+      'meta[property="og:description"]'
+    );
+    if (ogDescription) {
+      ogDescription.content = description;
+    }
 
-const ogDescription = document.querySelector(
-  'meta[property="og:description"]'
-) as HTMLMetaElement | null;
-if (ogDescription) {
-  ogDescription.content = description;
-}
+    const twitterTitle = document.querySelector<HTMLMetaElement>(
+      'meta[name="twitter:title"]'
+    );
+    if (twitterTitle) {
+      twitterTitle.content = title;
+    }
 
-const twitterTitle = document.querySelector(
-  'meta[name="twitter:title"]'
-) as HTMLMetaElement | null;
-if (twitterTitle) {
-  twitterTitle.content = title;
-}
-
-const twitterDescription = document.querySelector(
-  'meta[name="twitter:description"]'
-) as HTMLMetaElement | null;
-if (twitterDescription) {
-  twitterDescription.content = description;
-}
+    const twitterDescription = document.querySelector<HTMLMetaElement>(
+      'meta[name="twitter:description"]'
+    );
+    if (twitterDescription) {
+      twitterDescription.content = description;
+    }
 
     // JSON-LD dinâmico por rota (Service + BreadcrumbList)
-    const existingServiceSchemas = document.querySelectorAll<HTMLScriptElement>(
-      'script[data-hf-schema="service"]'
+    const existingServiceSchemas =
+      document.querySelectorAll<HTMLScriptElement>(
+        'script[data-hf-schema="service"]'
+      );
+    existingServiceSchemas.forEach((el) =>
+      el.parentNode?.removeChild(el)
     );
-    existingServiceSchemas.forEach((el) => el.parentNode?.removeChild(el));
 
     type ServiceSchema = Record<string, any>;
     const serviceSchemas: ServiceSchema[] = [];
@@ -228,7 +243,8 @@ if (twitterDescription) {
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet infantil em domicílio",
-          "description": "Buffet infantil em domicílio em Belo Horizonte, com cardápio completo, equipe de apoio e estrutura de buffet para festas em casa, prédios e escolas."
+          "description":
+            "Buffet infantil em domicílio em Belo Horizonte com cardápio completo de salgados, doces e bebidas, recreação e estrutura para festas infantis em casa, salões e escolas."
         },
         {
           "@context": "https://schema.org",
@@ -243,7 +259,7 @@ if (twitterDescription) {
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Buffet Infantil em BH",
+              "name": "Buffet infantil em BH",
               "item": "https://homefesteeventos.com.br/buffet-infantil-bh"
             }
           ]
@@ -254,19 +270,30 @@ if (twitterDescription) {
         {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Buffet churrasco em domicílio em Belo Horizonte",
+          "name": "Churrasco em domicílio em Belo Horizonte",
           "url": "https://homefesteeventos.com.br/buffet-churrasco-bh",
           "provider": baseBusiness,
           "areaServed": cityBH,
-          "serviceType": "Buffet churrasco em domicílio",
-          "description": "Churrasco completo em domicílio em Belo Horizonte, com carnes selecionadas, acompanhamentos e equipe de churrasqueiro e garçom."
+          "serviceType": "Churrasco em domicílio",
+          "description":
+            "Churrasco em domicílio em Belo Horizonte com cortes selecionados, acompanhamentos, equipe de churrasqueiro e serviço de buffet para festas em casa, sítios e salões de festas."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Buffet Churrasco em BH", "item": "https://homefesteeventos.com.br/buffet-churrasco-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Buffet churrasco em BH",
+              "item": "https://homefesteeventos.com.br/buffet-churrasco-bh"
+            }
           ]
         }
       );
@@ -280,14 +307,25 @@ if (twitterDescription) {
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet almoço e jantar",
-          "description": "Buffet de almoço e jantar para eventos com entradas, pratos principais, guarnições e serviço de buffet em casas, salões e empresas."
+          "description":
+            "Buffet de almoço e jantar para eventos em Belo Horizonte com entradas, pratos principais, guarnições e serviço completo para festas de família, casamentos intimistas e eventos corporativos."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Buffet Almoço e Jantar em BH", "item": "https://homefesteeventos.com.br/buffet-almoco-jantar-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Buffet almoço e jantar em BH",
+              "item": "https://homefesteeventos.com.br/buffet-almoco-jantar-bh"
+            }
           ]
         }
       );
@@ -301,14 +339,25 @@ if (twitterDescription) {
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet para festa escolar",
-          "description": "Buffet para festas escolares em Belo Horizonte com opções para crianças, logística adaptada e serviço rápido em escolas."
+          "description":
+            "Buffet para festas escolares em Belo Horizonte com cardápio infantil, logística adaptada para escolas, serviço rápido e estrutura completa para eventos pedagógicos e comemorativos."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Festa Escolar em BH", "item": "https://homefesteeventos.com.br/festa-escolar-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Festa escolar em BH",
+              "item": "https://homefesteeventos.com.br/festa-escolar-bh"
+            }
           ]
         }
       );
@@ -317,19 +366,30 @@ if (twitterDescription) {
         {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Buffet para festa de 15 anos em Belo Horizonte",
+          "name": "Festa de 15 anos em Belo Horizonte",
           "url": "https://homefesteeventos.com.br/festa-15-anos-bh",
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet para festa de 15 anos",
-          "description": "Buffet completo para festa de 15 anos com coquetel, jantar e serviço para debuts em casas, salões e sítios."
+          "description":
+            "Buffet completo para festa de 15 anos em Belo Horizonte com coquetel, jantar, sobremesas e serviço especializado para debuts em casa, salões ou espaços de eventos."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Festa de 15 anos em BH", "item": "https://homefesteeventos.com.br/festa-15-anos-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Festa de 15 anos em BH",
+              "item": "https://homefesteeventos.com.br/festa-15-anos-bh"
+            }
           ]
         }
       );
@@ -338,26 +398,34 @@ if (twitterDescription) {
         {
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": "Buffet para aniversário adulto em Belo Horizonte",
+          "name": "Aniversário adulto com buffet em Belo Horizonte",
           "url": "https://homefesteeventos.com.br/aniversario-adulto-bh",
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet para aniversário adulto",
-          "description": "Buffet para aniversário adulto em Belo Horizonte com diferentes formatos de serviço, gastronomia autoral e equipe completa para festas em casas, salões, sítios e empresas."
+          "description":
+            "Buffet para aniversário adulto em Belo Horizonte com cardápio personalizado, opções de coquetel, jantar ou churrasco e serviço completo em domicílio."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Aniversário adulto em BH", "item": "https://homefesteeventos.com.br/aniversario-adulto-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Aniversário adulto em BH",
+              "item": "https://homefesteeventos.com.br/aniversario-adulto-bh"
+            }
           ]
         }
       );
-    }
-
-
-    else if (isCasamento) {
+    } else if (isCasamento) {
       serviceSchemas.push(
         {
           "@context": "https://schema.org",
@@ -367,21 +435,29 @@ if (twitterDescription) {
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet para casamento",
-          "description": "Buffet completo para casamento em Belo Horizonte com coquetel, jantar, bebidas não alcoólicas e equipe presente em casas, salões, sítios e espaços de eventos."
+          "description":
+            "Buffet completo para casamento em Belo Horizonte com serviço de mini wedding, casamento intimista em casa ou espaço próprio, cardápio elegante e atendimento dedicado."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Buffet para casamento em Belo Horizonte", "item": "https://homefesteeventos.com.br/buffet-casamento-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Buffet para casamento em BH",
+              "item": "https://homefesteeventos.com.br/buffet-casamento-bh"
+            }
           ]
         }
       );
-    }
-
-
-    else if (isConfraternizacaoCorporativa) {
+    } else if (isConfraternizacaoCorporativa) {
       serviceSchemas.push(
         {
           "@context": "https://schema.org",
@@ -391,14 +467,26 @@ if (twitterDescription) {
           "provider": baseBusiness,
           "areaServed": cityBH,
           "serviceType": "Buffet para confraternização corporativa",
-          "description": "Buffet completo para confraternizações corporativas em Belo Horizonte com coquetel, almoço, jantar e serviço de equipe no espaço da empresa ou em locais parceiros."
+          "description":
+            "Buffet para confraternizações corporativas em Belo Horizonte com opções de coffee break, coquetel, churrasco, almoço ou jantar em domicílio, no escritório ou em espaços parceiros."
         },
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://homefesteeventos.com.br/" },
-            { "@type": "ListItem", "position": 2, "name": "Confraternização corporativa em Belo Horizonte", "item": "https://homefesteeventos.com.br/confraternizacao-corporativa-bh" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://homefesteeventos.com.br/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Confraternização corporativa em BH",
+              "item":
+                "https://homefesteeventos.com.br/confraternizacao-corporativa-bh"
+            }
           ]
         }
       );
@@ -408,10 +496,13 @@ if (twitterDescription) {
       const script = document.createElement("script");
       script.type = "application/ld+json";
       script.setAttribute("data-hf-schema", "service");
-      script.text = JSON.stringify(serviceSchemas.length === 1 ? serviceSchemas[0] : serviceSchemas);
+      script.text = JSON.stringify(
+        serviceSchemas.length === 1 ? serviceSchemas[0] : serviceSchemas
+      );
       document.head.appendChild(script);
     }
-  }, [pathname]);
+  }, [pathname, title, description]);
+
 
   // Rotas dedicadas para serviços específicos
   // Envolver todas as rotas com ModalProvider
@@ -546,7 +637,6 @@ if (twitterDescription) {
           <section id="planeje">
             <PlanYourParty />
           </section>
-
           {/* PORTFÓLIO / TIPOS DE FESTA EM CASA */}
           <section id="portfolio">
             <Portfolio />

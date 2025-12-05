@@ -1,5 +1,6 @@
 // src/components/EventTypes.tsx
 import React, { useState } from "react";
+import { useModal } from "../hooks/useModal";
 
 type Tipo = {
   id: string;
@@ -13,114 +14,134 @@ const TIPOS: Tipo[] = [
   {
     id: "infantil",
     title: "Buffet Infantil",
-    img: "/card-buffet-infantil.jpg",
-    desc: "Festa temática com cardápio lúdico, recreação e decoração base inclusa.",
+    img: "/portfolio-infantil.webp",
+    desc: "Festa infantil em casa, salão ou escola com cardápio completo, lanchinho personalizado e recreação sob medida.",
     bullets: [
-      "Cardápio infantil (salgados + mini docinhos)",
-      "Bebidas não alcoólicas",
-      "Decoração base do tema",
-      "Brinquedão + espaço baby",
-      "Equipe de coordenação e atendimento",
+      "Cardápio infantil com lanchinho + aparador",
+      "Doces e torta verdadeira servidos após o parabéns",
+      "Bebidas não alcoólicas à vontade",
+      "Opção de recreação e pinturinha facial",
+      "Sugestão de cardápio com possibilidade de personalização",
     ],
   },
   {
     id: "15anos",
-    title: "15 Anos",
-    img: "/card-15anos.jpg",
-    desc: "Celebração sofisticada com menu autoral e ambientação elegante.",
+    title: "Festa de 15 Anos em Casa",
+    img: "/aniversario-15-anos-home-fest-e-eventos.svg",
+    desc: "Festa de 15 anos em casa em Belo Horizonte com buffet completo, mesa de doces, ambientação elegante e produção Home Fest & Eventos.",
     bullets: [
-      "Coquetel volante e ilhas frias",
-      "Jantar ou massas ao vivo (opcional)",
-      "Bolo cenográfico + bolo verdadeiro",
-      "Projeto de decoração base",
-      "Supervisor de evento e equipe completa",
+      "Cardápio em formato coquetel ou refeição completa, conforme o perfil da debutante",
+      "Doces finos, bolo cenográfico opcional e mesa de sobremesas decorada",
+      "Opção de drinks sem álcool, mocktails e serviço de copeira",
+      "Decoração personalizada de acordo com o estilo da debutante e da família",
+      "Pacote base com possibilidade de ajustes em conjunto com a família, sempre com atendimento em BH e região",
     ],
   },
   {
     id: "casamento",
-    title: "Casamento",
-    img: "/casamento.jpg",
-    desc: "Cerimônia e recepção com serviço completo e curadoria de detalhes.",
+    title: "Casamento Intimista",
+    img: "/portfolio-casamento.webp",
+    desc: "Casamento intimista com almoço ou jantar refinado, serviço completo e clima acolhedor.",
     bullets: [
-      "Finger foods na recepção dos noivos",
-      "Jantar completo (4 opções de menu)",
-      "Bebidas não alcoólicas",
-      "Assessoria de salão + maître",
-      "Mesa de café e petit fours",
+      "Uso dos 4 cardápios oficiais de almoço e jantar Essenzia",
+      "Entrada, prato principal e acompanhamentos bem equilibrados",
+      "Serviço completo de salão e cozinha",
+      "Mesa de doces e café opcional",
+      "Cardápio base sugerido com ajustes conforme o perfil do casal",
     ],
   },
   {
     id: "churrasco",
-    title: "Churrasco",
-    img: "/churrasco.jpg",
-    desc: "Cortes selecionados na brasa e acompanhamentos especiais.",
+    title: "Churrasco em Domicílio",
+    img: "/portfolio-churrasco.webp",
+    desc: "Churrasco em domicílio com seleção de carnes, acompanhamentos e serviço especializado.",
     bullets: [
-      "Cortes bovinos, suínos e aves",
-      "Acompanhamentos e farofas especiais",
-      "Estação de saladas frescas",
-      "Equipe de assadores e copeira",
-      "Utensílios e louçaria inclusos",
+      "Carnes tradicionais e cortes especiais a definir com o cliente",
+      "Acompanhamentos, saladas e farofas",
+      "Equipe de churrasqueiros e atendimento de salão",
+      "Estrutura pensada para casas, coberturas e sítios",
+      "Cardápio base com liberdade para troca de itens",
     ],
   },
   {
     id: "boteco",
     title: "Comida de Boteco",
-    img: "/boteco.jpg",
-    desc: "Petiscos clássicos, apresentação impecável e clima descontraído.",
+    img: "/portfolio-boteco.webp",
+    desc: "Petiscos de boteco com apresentação premium para aniversários, empresas e encontros entre amigos.",
     bullets: [
-      "Trio de pastéis artesanais",
-      "Bolinho de mandioca com queijo",
-      "Croquete especial e torresmo",
-      "Estação de caldos (opcional)",
-      "Serviço volante com equipe",
+      "Seleção de petiscos quentes e frios",
+      "Porções e mini pratos inspirados em boteco tradicional",
+      "Pode ser combinado com mesa de doces ou sobremesas",
+      "Ideal para eventos descontraídos e corporativos informais",
+      "Cardápio sugerido com possibilidade de personalização",
     ],
   },
   {
-    id: "homefest",
-    title: "Home Fest",
-    img: "/homefest.jpg",
-    desc: "Toda a estrutura do buffet na sua casa, com logística completa.",
+    id: "adulto",
+    title: "Festa Adulto",
+    img: "/portfolio-adulto.webp",
+    desc: "Festa adulta com combinações de coquetel, boteco, churrasco ou jantar, conforme o perfil dos convidados.",
     bullets: [
-      "Montagem, serviço e desmontagem",
-      "Cardápio sob medida pelo perfil do evento",
-      "Louças/utensílios e limpeza básica",
-      "Equipe completa (cozinha e salão)",
-      "Atende de 50 a 200 convidados",
+      "Formatos flexíveis: coquetel, boteco, churrasco ou refeição completa",
+      "Possibilidade de incluir mesa de doces e café",
+      "Bebidas não alcoólicas incluídas; bar de drinks sob consulta",
+      "Indicado para aniversários, bodas e reuniões de família",
+      "Cardápio planejado em conjunto com o anfitrião",
     ],
   },
   {
     id: "empresas",
     title: "Corporativo",
-    img: "/empresas.jpg",
-    desc: "Coffee breaks, almoços executivos e coquetéis para marcas.",
+    img: "/portfolio-empresas.webp",
+    desc: "Soluções gastronômicas para empresas: coffee breaks, coquetéis, almoços e jantares executivos.",
     bullets: [
-      "Coffee break com opções quentes e frias",
-      "Coquetel executivo e finger foods",
-      "Buffet de almoço ou jantar",
-      "Atendimento em sede ou off-site",
-      "Nota fiscal e compliance",
+      "Coffee break completo para reuniões e treinamentos",
+      "Coquetel com finger foods e mini porções",
+      "Almoço e jantar com cardápios Essenzia",
+      "Atendimento em sedes, auditórios e espaços de eventos",
+      "Organização pensada para rotina e logística corporativa",
     ],
   },
   {
     id: "escolar",
     title: "Festa Escolar",
-    img: "/escolar.jpg",
-    desc: "Soluções práticas e seguras para eventos escolares.",
+    img: "/portfolio-escolar.webp",
+    desc: "Festa escolar com lanchinho, aparador infantil e doces na medida certa, respeitando o ambiente escolar.",
     bullets: [
-      "Lanches e sucos naturais",
-      "Opção sem glúten/sem lactose (sob consulta)",
-      "Equipe treinada para ambientes escolares",
-      "Montagem rápida e organizada",
-      "Higiene e segurança reforçadas",
+      "Lanchinho montado conforme faixa etária",
+      "Aparador com sucos, pipoca, chips e guloseimas",
+      "Doces clássicos em quantidade adequada",
+      "Equipe acostumada com rotina de escolas",
+      "Cardápio ajustável às orientações da escola e dos responsáveis",
     ],
   },
 ];
 
 export default function EventTypes() {
   const [open, setOpen] = useState<string | null>(null);
+  const { openModal } = useModal();
 
   const toggle = (id: string) => {
     setOpen((prev) => (prev === id ? null : id));
+  };
+
+  const getMenuIdByTipo = (id: string): string | null => {
+    switch (id) {
+      case "infantil":
+        return "infantil";
+      case "15anos":
+        return "15anos";
+      case "casamento":
+        return "casamento";
+      case "boteco":
+        return "boteco";
+      case "empresas":
+        return "empresas";
+      case "escolar":
+        return "escolar";
+      default:
+        return null;
+    }
   };
 
   return (
@@ -160,12 +181,23 @@ export default function EventTypes() {
                   <p className="mt-1 text-[15px] text-[#494949]">{t.desc}</p>
 
                   {/* Ações */}
-                  <div className="card-actions mt-6">
+                  <div className="card-actions mt-6 flex flex-wrap gap-2">
+                    {getMenuIdByTipo(t.id) && (
+                      <button
+                        type="button"
+                        onClick={() => openModal(getMenuIdByTipo(t.id) as string, t.title)}
+                        className="hf-btn hf-btn--primary"
+                      >
+                        Ver cardápio
+                      </button>
+                    )}
+
                     <button
                       onClick={() => toggle(t.id)}
                       className="hf-btn hf-btn--outline"
                       aria-expanded={isOpen}
                       aria-controls={`saiba-${t.id}`}
+                      type="button"
                     >
                       {isOpen ? "Fechar detalhes" : "Saiba mais"}
                     </button>
@@ -174,7 +206,7 @@ export default function EventTypes() {
                       href="https://wa.me/5531999186245"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hf-btn hf-btn--primary"
+                      className="hf-btn hf-btn--ghost"
                     >
                       Orçamento via WhatsApp
                     </a>

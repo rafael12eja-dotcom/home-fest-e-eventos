@@ -17,6 +17,12 @@ const data: Item[] = [
     desc: "Festa infantil completa com buffet em casa e ambientação acolhedora."
   },
   {
+    id: "15anos",
+    title: "Festa de 15 Anos em Casa",
+    img: "/aniversario-15-anos-home-fest-e-eventos.svg",
+    desc: "Celebração de 15 anos com cardápio completo, mesa de doces e clima sofisticado no seu próprio espaço."
+  },
+  {
     id: "adulto",
     title: "Aniversário Adulto",
     img: "/portfolio-adulto.jpg",
